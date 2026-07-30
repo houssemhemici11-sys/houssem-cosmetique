@@ -70,7 +70,8 @@
                     <th>Client</th>
                     <th>Téléphone</th>
                     <th>Adresse</th>
-                    <th>Produit</th>
+                    <th>Produits</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody id="orders-body">
@@ -123,12 +124,20 @@
                 // On affiche les commandes (les plus récentes en haut)
                 orders.reverse().forEach(order => {
                     const tr = document.createElement('tr');
+                    let productsHtml = '';
+                    if (Array.isArray(order.items) && order.items.length > 0) {
+                        productsHtml = order.items.map(i => `<span class="badge" style="display:inline-block;margin:2px;">${i.name} ×${i.qty}</span>`).join('');
+                    } else {
+                        productsHtml = `<span class="badge">${order.product || '-'}</span>`;
+                    }
+                    const totalText = order.total ? `${order.total.toLocaleString('fr-FR')} DA` : '-';
                     tr.innerHTML = `
                         <td style="font-size: 0.8rem; color: #666;">${order.timestamp}</td>
                         <td style="font-weight: 600;">${order.name}</td>
                         <td><a href="tel:${order.phone}" style="color: black;">${order.phone}</a></td>
                         <td style="max-width: 250px; font-size: 0.9rem;">${order.address}</td>
-                        <td><span class="badge">${order.product}</span></td>
+                        <td style="max-width: 280px;">${productsHtml}</td>
+                        <td style="font-weight: 600;">${totalText}</td>
                     `;
                     tbody.appendChild(tr);
                 });

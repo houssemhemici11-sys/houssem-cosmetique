@@ -56,6 +56,14 @@ app.post('/api/orders', (req, res) => {
     allOrders.push(order);
     fs.writeFileSync(filePath, JSON.stringify(allOrders, null, 2));
 
+    // Construire la liste des produits (supporte le panier "items" et l'ancien format "product")
+    let itemsText = order.product || '';
+    let totalText = '';
+    if (Array.isArray(order.items) && order.items.length > 0) {
+        itemsText = order.items.map(i => `${i.name} x${i.qty} (${i.price * i.qty} DA)`).join('\n');
+        totalText = `\n💰 Total: ${order.total} DA`;
+    }
+
     // Envoyer la notification Telegram
     const telegramText = `
 🛍 NOUVELLE COMMANDE !
@@ -63,7 +71,8 @@ app.post('/api/orders', (req, res) => {
 👤 Client: ${order.name}
 📞 Tel: ${order.phone}
 📍 Adresse: ${order.address}
-💄 Produit: ${order.product}
+💄 Produits:
+${itemsText}${totalText}
 🚛 Mode: Paiement à la livraison
 ------------------------
 `;

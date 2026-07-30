@@ -10,9 +10,21 @@
 <body>
 
     <header>
-        <div class="container">
-            <h1>Houssem Cosmetics</h1>
-            <p>L'excellence cosmétique en Algérie</p>
+        <div class="container header-inner">
+            <div class="brand">
+                <h1>Houssem Cosmetics</h1>
+                <p>L'excellence cosmétique en Algérie</p>
+            </div>
+            <div class="header-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Rechercher un produit...">
+                </div>
+                <button id="cart-btn" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -29,9 +41,13 @@
             <div class="section-title">
                 <h2>Nos Produits</h2>
             </div>
+            <div class="category-bar" id="category-bar"></div>
             <div class="product-grid" id="product-list">
                 <!-- Les produits seront injectés par JavaScript -->
             </div>
+            <p id="no-results" style="display:none; text-align:center; color: var(--gray-medium); margin-top: 30px;">
+                Aucun produit ne correspond à votre recherche.
+            </p>
         </div>
     </section>
 
@@ -41,6 +57,16 @@
                 <div class="section-title">
                     <h2>Passer une Commande</h2>
                 </div>
+
+                <div class="checkout-summary-box">
+                    <h4>Récapitulatif du panier</h4>
+                    <div id="checkout-summary"></div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="checkout-total">0 DA</span>
+                    </div>
+                </div>
+
                 <form id="order-form" class="order-form">
                     <div class="form-group">
                         <label for="name">Nom Complet</label>
@@ -53,13 +79,6 @@
                     <div class="form-group">
                         <label for="address">Adresse de Livraison</label>
                         <textarea id="address" rows="3" required placeholder="Votre adresse complète en Algérie"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="product">Produit sélectionné</label>
-                        <select id="product" required>
-                            <option value="">Sélectionnez un produit</option>
-                            <!-- Les options seront injectées par JavaScript -->
-                        </select>
                     </div>
 
                     <div class="payment-info">
@@ -78,6 +97,23 @@
     <a href="https://wa.me/213774597291" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Cart Drawer -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <aside id="cart-drawer" class="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fas fa-shopping-bag"></i> Mon Panier</h3>
+            <button id="close-cart" class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>Total</span>
+                <span id="cart-total">0 DA</span>
+            </div>
+            <button id="go-checkout" class="btn" style="width: 100%;">Passer la commande</button>
+        </div>
+    </aside>
 
     <footer>
         <div class="container">
