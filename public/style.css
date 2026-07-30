@@ -535,3 +535,40 @@ footer {
     .search-box { min-width: 0; flex: 1; }
     .cart-drawer { max-width: 100%; }
 }
+
+/* ============ Delivery type options ============ */
+.delivery-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.delivery-option {
+    flex: 1;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--gray-light);
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.delivery-option:has(input:checked) {
+    border-color: var(--primary);
+    background: var(--gray-light);
+}
+
+.delivery-option input[type="radio"] {
+    accent-color: var(--primary);
+    width: 16px;
+    height: 16px;
+}
+
+.delivery-option span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

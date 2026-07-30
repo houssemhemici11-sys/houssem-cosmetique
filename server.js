@@ -72,7 +72,8 @@ app.post('/api/orders', (req, res) => {
 📞 Tel: ${order.phone}
 📍 Wilaya: ${order.wilaya || '-'}
 🏘 Commune: ${order.commune || '-'}
-📍 Adresse: ${order.address}
+🚚 Livraison: ${order.deliveryType || 'À domicile'}
+📍 Adresse: ${order.address || '(retrait au bureau)'}
 💄 Produits:
 ${itemsText}${totalText}
 🚛 Mode: Paiement à la livraison

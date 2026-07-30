@@ -43,6 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const noResults = document.getElementById('no-results');
     const wilayaSelect = document.getElementById('wilaya');
     const communeSelect = document.getElementById('commune');
+    const addressGroup = document.getElementById('address-group');
+    const addressInput = document.getElementById('address');
+    const bureauNote = document.getElementById('bureau-note');
+    const deliveryRadios = document.querySelectorAll('input[name="delivery-type"]');
 
     const formatPrice = (n) => n.toLocaleString('fr-FR') + ' DA';
 
@@ -204,6 +208,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
     });
 
+    // ---------- DELIVERY TYPE TOGGLE ----------
+    deliveryRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.value === 'bureau' && radio.checked) {
+                addressGroup.style.display = 'none';
+                addressInput.required = false;
+                bureauNote.style.display = 'block';
+            } else if (radio.value === 'domicile' && radio.checked) {
+                addressGroup.style.display = 'block';
+                addressInput.required = true;
+                bureauNote.style.display = 'none';
+            }
+        });
+    });
+
     // ---------- WILAYA / COMMUNE DROPDOWNS ----------
     if (typeof ALGERIA_WILAYAS !== 'undefined') {
         ALGERIA_WILAYAS.forEach(w => {
@@ -254,12 +273,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const deliveryType = document.querySelector('input[name="delivery-type"]:checked').value;
+
         const formData = {
             name: document.getElementById('name').value,
             phone: document.getElementById('phone').value,
             wilaya: wilayaSelect.options[wilayaSelect.selectedIndex].text,
             commune: communeSelect.value,
-            address: document.getElementById('address').value,
+            deliveryType: deliveryType === 'bureau' ? 'Au bureau (Stop Desk)' : 'À domicile',
+            address: deliveryType === 'bureau' ? '' : document.getElementById('address').value,
             items: cart,
             total: cartTotal()
         };
@@ -278,6 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 orderForm.reset();
                 communeSelect.innerHTML = '<option value="" disabled selected>Choisissez d\'abord une wilaya</option>';
                 communeSelect.disabled = true;
+                addressGroup.style.display = 'block';
+                addressInput.required = true;
+                bureauNote.style.display = 'none';
                 cart = [];
                 saveCart();
                 updateCartUI();

@@ -89,9 +89,25 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>Mode de Livraison</label>
+                        <div class="delivery-options">
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery-type" value="domicile" checked>
+                                <span><i class="fas fa-house"></i> À domicile</span>
+                            </label>
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery-type" value="bureau">
+                                <span><i class="fas fa-building"></i> Au bureau (Stop Desk)</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="address-group">
                         <label for="address">Adresse Précise (rue, quartier...)</label>
                         <textarea id="address" rows="3" required placeholder="Ex: Cité 500 logements, Bloc B, N°12"></textarea>
                     </div>
+                    <p id="bureau-note" style="display:none; font-size: 0.85rem; color: var(--gray-medium); margin-top: -12px; margin-bottom: 20px;">
+                        <i class="fas fa-info-circle"></i> Vous récupérerez votre colis au bureau de livraison de votre commune. Nous vous communiquerons l'adresse exacte lors de la confirmation.
+                    </p>
 
                     <div class="payment-info">
                         <h4><i class="fas fa-truck"></i> Paiement à la Livraison</h4>
