@@ -278,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = {
             name: document.getElementById('name').value,
             phone: document.getElementById('phone').value,
+            instagram: document.getElementById('instagram').value,
             wilaya: wilayaSelect.options[wilayaSelect.selectedIndex].text,
             commune: communeSelect.value,
             deliveryType: deliveryType === 'bureau' ? 'Au bureau (Stop Desk)' : 'À domicile',

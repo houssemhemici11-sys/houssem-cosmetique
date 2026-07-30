@@ -69,6 +69,7 @@
                     <th>Date</th>
                     <th>Client</th>
                     <th>Téléphone</th>
+                    <th>Instagram</th>
                     <th>Wilaya / Commune</th>
                     <th>Livraison</th>
                     <th>Adresse</th>
@@ -137,6 +138,7 @@
                         <td style="font-size: 0.8rem; color: #666;">${order.timestamp}</td>
                         <td style="font-weight: 600;">${order.name}</td>
                         <td><a href="tel:${order.phone}" style="color: black;">${order.phone}</a></td>
+                        <td>${order.instagram ? `<a href="https://instagram.com/${order.instagram.replace('@','')}" target="_blank" style="color:#c13584;">${order.instagram}</a>` : '-'}</td>
                         <td style="font-size: 0.9rem;">${order.wilaya || '-'}<br><span style="color:#666;">${order.commune || ''}</span></td>
                         <td style="font-size: 0.85rem;">${order.deliveryType || 'À domicile'}</td>
                         <td style="max-width: 200px; font-size: 0.9rem;">${order.address || '(retrait au bureau)'}</td>
