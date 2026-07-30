@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const products = [
-        { id: 15, name: "Dr.Althea 147 Barrier Cream", price: 3200, category: "Visage", description: "Crème réparatrice qui renforce la barrière cutanée.", image: "https://placehold.co/400x400/f5f0eb/333333?text=Dr.Althea+147" },
-        { id: 16, name: "Dr.Althea 345 Cream", price: 3400, category: "Visage", description: "Soin apaisant à base de centella asiatica.", image: "https://placehold.co/400x400/f5f0eb/333333?text=Dr.Althea+345" },
-        { id: 17, name: "Dr.Althea Vitamin C Serum", price: 3900, category: "Visage", description: "Sérum éclaircissant à la vitamine C pour un teint uniforme.", image: "https://placehold.co/400x400/f5f0eb/333333?text=Vitamin+C+Serum" },
-        { id: 18, name: "Anua Ceramide Hydrating Barrier", price: 3600, category: "Visage", description: "Sérum aux céramides pour renforcer et hydrater la peau.", image: "https://placehold.co/400x400/f5f0eb/333333?text=Anua+Ceramide" },
-        { id: 19, name: "Anua Azelaic Acid Blue", price: 3300, category: "Visage", description: "Sérum apaisant à l'acide azélaïque, formule douce.", image: "https://placehold.co/400x400/dbe9f4/333333?text=Azelaic+Blue" },
-        { id: 20, name: "Anua Azelaic Acid Green", price: 3300, category: "Visage", description: "Sérum régulateur pour peaux à imperfections.", image: "https://placehold.co/400x400/e0f0e0/333333?text=Azelaic+Green" },
-        { id: 21, name: "Anua Azelaic Acid Red", price: 3500, category: "Visage", description: "Sérum intensif pour peaux à rougeurs et imperfections.", image: "https://placehold.co/400x400/f4dbdb/333333?text=Azelaic+Red" },
-        { id: 22, name: "Retinal Shot Tightening Booster", price: 3800, category: "Visage", description: "Booster raffermissant au rétinal pour une peau plus ferme.", image: "https://placehold.co/400x400/f5f0eb/333333?text=Retinal+Shot" },
-        { id: 23, name: "Centella Travel Kit", price: 3900, category: "Coffret", description: "Kit voyage complet à la centella asiatica apaisante.", image: "https://placehold.co/400x400/e0f0e0/333333?text=Centella+Kit" },
-        { id: 24, name: "Kojic Cream", price: 3100, category: "Visage", description: "Crème éclaircissante à l'acide kojique.", image: "https://placehold.co/400x400/f5f0eb/333333?text=Kojic+Cream" },
-        { id: 25, name: "Seoul 1988 Eye Cream", price: 3700, category: "Visage", description: "Contour des yeux anti-âge, texture fondante.", image: "https://placehold.co/400x400/f5f0eb/333333?text=Eye+Cream" },
-        { id: 26, name: "Centella Serum Marron 100ml", price: 3400, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 100ml.", image: "https://placehold.co/400x400/e0f0e0/333333?text=Centella+100ml" },
-        { id: 27, name: "Centella Serum Marron 200ml", price: 3800, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 200ml.", image: "https://placehold.co/400x400/e0f0e0/333333?text=Centella+200ml" },
-        { id: 28, name: "Centella Gel Rose", price: 3200, category: "Visage", description: "Gel apaisant et rafraîchissant à la centella asiatica.", image: "https://placehold.co/400x400/f4dbe8/333333?text=Centella+Gel" },
-        { id: 29, name: "Embryolisse", price: 3600, category: "Visage", description: "Lait hydratant multi-usage, le soin culte des makeup artists.", image: "https://placehold.co/400x400/f5f0eb/333333?text=Embryolisse" },
-        { id: 30, name: "345 Cream Mist", price: 3300, category: "Visage", description: "Brume hydratante pour un teint frais toute la journée.", image: "https://placehold.co/400x400/dbe9f4/333333?text=Cream+Mist" },
-        { id: 31, name: "Centella Ampoule Rose", price: 3900, category: "Visage", description: "Ampoule concentrée à la centella asiatica pour peaux sensibles.", image: "https://placehold.co/400x400/f4dbe8/333333?text=Centella+Ampoule" }
+        { id: 15, name: "Dr.Althea 147 Barrier Cream", price: 3200, category: "Visage", description: "Crème réparatrice qui renforce la barrière cutanée.", image: "images/products/Dr_Althea_147_Barrier_Cream.jpg" },
+        { id: 16, name: "Dr.Althea 345 Cream", price: 3400, category: "Visage", description: "Soin apaisant à base de centella asiatica.", image: "images/products/Dr_Althea_345_Relief_Cream.jpg" },
+        { id: 17, name: "Dr.Althea Vitamin C Serum", price: 3900, category: "Visage", description: "Sérum éclaircissant à la vitamine C pour un teint uniforme.", image: "images/products/Dr_Althea_Vitamin_C_Serum.jpg" },
+        { id: 18, name: "Anua Ceramide Hydrating Barrier", price: 3600, category: "Visage", description: "Sérum aux céramides pour renforcer et hydrater la peau.", image: "images/products/Anua_Rice_7_Ceramide_Serum.jpg" },
+        { id: 19, name: "Anua Azelaic Acid Blue", price: 3300, category: "Visage", description: "Sérum apaisant à l'acide azélaïque, formule douce.", image: "images/products/Anua_PDRN_Hyaluron_Serum_Blue.jpg" },
+        { id: 20, name: "Anua Azelaic Acid Green", price: 3300, category: "Visage", description: "Sérum régulateur pour peaux à imperfections.", image: "images/products/Anua_Azelaic_Acid_10_Serum_Green.jpg" },
+        { id: 21, name: "Anua Azelaic Acid Red", price: 3500, category: "Visage", description: "Sérum intensif pour peaux à rougeurs et imperfections.", image: "images/products/Anua_Niacinamide_10_TXA_4_Serum_Red.jpg" },
+        { id: 22, name: "Retinal Shot Tightening Booster", price: 3800, category: "Visage", description: "Booster raffermissant au rétinal pour une peau plus ferme.", image: "images/products/Celimax_Retinal_Shot_Booster.jpg" },
+        { id: 23, name: "Centella Travel Kit", price: 3900, category: "Coffret", description: "Kit voyage complet à la centella asiatica apaisante.", image: "images/products/SKIN1004_Centella_Travel_Kit.jpg" },
+        { id: 24, name: "Kojic Cream", price: 3100, category: "Visage", description: "Crème éclaircissante à l'acide kojique.", image: "images/products/Dr_Althea_Melaclear_Kojic_Cream.jpg" },
+        { id: 25, name: "Seoul 1988 Eye Cream", price: 3700, category: "Visage", description: "Contour des yeux anti-âge, texture fondante.", image: "images/products/K_Secret_Seoul_1988_Eye_Cream.jpg" },
+        { id: 26, name: "Centella Serum Marron 100ml", price: 3400, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 100ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg" },
+        { id: 27, name: "Centella Serum Marron 200ml", price: 3800, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 200ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg" },
+        { id: 28, name: "Centella Gel Rose", price: 3200, category: "Visage", description: "Gel apaisant et rafraîchissant à la centella asiatica.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg" },
+        { id: 29, name: "Embryolisse", price: 3600, category: "Visage", description: "Lait hydratant multi-usage, le soin culte des makeup artists.", image: "images/products/Embryolisse_Lait_Creme_Concentre.jpg" },
+        { id: 30, name: "345 Cream Mist", price: 3300, category: "Visage", description: "Brume hydratante pour un teint frais toute la journée.", image: "images/products/Dr_Althea_345_Cream_Mist.jpg" },
+        { id: 31, name: "Centella Ampoule Rose", price: 3900, category: "Visage", description: "Ampoule concentrée à la centella asiatica pour peaux sensibles.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg" }
     ];
 
     // ---------- STATE ----------
