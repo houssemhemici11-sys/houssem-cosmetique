@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 3000;
 
 // --- CONFIGURATION TELEGRAM ---
 // Remplissez ces deux infos pour recevoir les notifications sur votre téléphone
-const TELEGRAM_BOT_TOKEN = 'VOTRE_TOKEN_ICI';
-const TELEGRAM_CHAT_ID = 'VOTRE_CHAT_ID_ICI';
+const TELEGRAM_BOT_TOKEN = '8984049075:AAGW0uczWmSlgIa6cavV_MOpA5DyGPrTcqc';
+const TELEGRAM_CHAT_ID = '1772163554';
 
 function sendTelegramMessage(text) {
     if (TELEGRAM_BOT_TOKEN === 'VOTRE_TOKEN_ICI') return; // Ne rien faire si pas configuré
