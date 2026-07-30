@@ -69,6 +69,7 @@
                     <th>Date</th>
                     <th>Client</th>
                     <th>Téléphone</th>
+                    <th>Wilaya / Commune</th>
                     <th>Adresse</th>
                     <th>Produits</th>
                     <th>Total</th>
@@ -135,7 +136,8 @@
                         <td style="font-size: 0.8rem; color: #666;">${order.timestamp}</td>
                         <td style="font-weight: 600;">${order.name}</td>
                         <td><a href="tel:${order.phone}" style="color: black;">${order.phone}</a></td>
-                        <td style="max-width: 250px; font-size: 0.9rem;">${order.address}</td>
+                        <td style="font-size: 0.9rem;">${order.wilaya || '-'}<br><span style="color:#666;">${order.commune || ''}</span></td>
+                        <td style="max-width: 200px; font-size: 0.9rem;">${order.address}</td>
                         <td style="max-width: 280px;">${productsHtml}</td>
                         <td style="font-weight: 600;">${totalText}</td>
                     `;

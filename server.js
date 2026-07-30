@@ -70,6 +70,8 @@ app.post('/api/orders', (req, res) => {
 ------------------------
 👤 Client: ${order.name}
 📞 Tel: ${order.phone}
+📍 Wilaya: ${order.wilaya || '-'}
+🏘 Commune: ${order.commune || '-'}
 📍 Adresse: ${order.address}
 💄 Produits:
 ${itemsText}${totalText}

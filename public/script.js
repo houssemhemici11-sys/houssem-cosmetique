@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkoutSummary = document.getElementById('checkout-summary');
     const checkoutTotal = document.getElementById('checkout-total');
     const noResults = document.getElementById('no-results');
+    const wilayaSelect = document.getElementById('wilaya');
+    const communeSelect = document.getElementById('commune');
 
     const formatPrice = (n) => n.toLocaleString('fr-FR') + ' DA';
 
@@ -202,6 +204,38 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
     });
 
+    // ---------- WILAYA / COMMUNE DROPDOWNS ----------
+    if (typeof ALGERIA_WILAYAS !== 'undefined') {
+        ALGERIA_WILAYAS.forEach(w => {
+            const opt = document.createElement('option');
+            opt.value = w.code;
+            opt.textContent = `${w.code} - ${w.name}`;
+            wilayaSelect.appendChild(opt);
+        });
+
+        wilayaSelect.addEventListener('change', () => {
+            const wilaya = ALGERIA_WILAYAS.find(w => w.code === wilayaSelect.value);
+            communeSelect.innerHTML = '';
+            if (wilaya) {
+                communeSelect.disabled = false;
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = '';
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                defaultOpt.textContent = 'Choisissez votre commune';
+                communeSelect.appendChild(defaultOpt);
+                wilaya.communes.forEach(c => {
+                    const opt = document.createElement('option');
+                    opt.value = c;
+                    opt.textContent = c;
+                    communeSelect.appendChild(opt);
+                });
+            } else {
+                communeSelect.disabled = true;
+            }
+        });
+    }
+
     // ---------- ORDER FORM ----------
     orderForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -213,9 +247,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        if (!wilayaSelect.value || !communeSelect.value) {
+            orderMessage.style.display = 'block';
+            orderMessage.style.color = 'red';
+            orderMessage.textContent = "Merci de choisir votre wilaya et votre commune.";
+            return;
+        }
+
         const formData = {
             name: document.getElementById('name').value,
             phone: document.getElementById('phone').value,
+            wilaya: wilayaSelect.options[wilayaSelect.selectedIndex].text,
+            commune: communeSelect.value,
             address: document.getElementById('address').value,
             items: cart,
             total: cartTotal()
@@ -233,6 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 orderMessage.style.color = 'green';
                 orderMessage.innerHTML = `<i class="fas fa-check-circle"></i> Merci ${formData.name} ! Votre commande de <strong>${formatPrice(formData.total)}</strong> a été enregistrée. Nous vous contacterons bientôt au ${formData.phone}.`;
                 orderForm.reset();
+                communeSelect.innerHTML = '<option value="" disabled selected>Choisissez d\'abord une wilaya</option>';
+                communeSelect.disabled = true;
                 cart = [];
                 saveCart();
                 updateCartUI();

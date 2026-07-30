@@ -77,8 +77,20 @@
                         <input type="tel" id="phone" required placeholder="Ex: 0550 00 00 00">
                     </div>
                     <div class="form-group">
-                        <label for="address">Adresse de Livraison</label>
-                        <textarea id="address" rows="3" required placeholder="Votre adresse complète en Algérie"></textarea>
+                        <label for="wilaya">Wilaya</label>
+                        <select id="wilaya" required>
+                            <option value="" disabled selected>Choisissez votre wilaya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="commune">Commune</label>
+                        <select id="commune" required disabled>
+                            <option value="" disabled selected>Choisissez d'abord une wilaya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Adresse Précise (rue, quartier...)</label>
+                        <textarea id="address" rows="3" required placeholder="Ex: Cité 500 logements, Bloc B, N°12"></textarea>
                     </div>
 
                     <div class="payment-info">
@@ -122,6 +134,7 @@
         </div>
     </footer>
 
+    <script src="wilayas-data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
