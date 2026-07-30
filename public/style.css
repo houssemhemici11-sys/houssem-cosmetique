@@ -572,3 +572,80 @@ footer {
     align-items: center;
     gap: 8px;
 }
+
+/* ============ Promo banner ============ */
+.promo-banner {
+    background: var(--primary);
+    color: var(--secondary);
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 10px 16px;
+}
+
+.promo-banner i { margin-right: 6px; color: #d4af37; }
+
+/* ============ Product badges ============ */
+.product-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    color: #fff;
+    z-index: 2;
+}
+
+.badge-best { background: #d4af37; color: #000; }
+.badge-new { background: #2c7a4b; }
+.badge-out { background: #999; }
+
+/* ============ Ratings ============ */
+.rating-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.stars { color: #d4af37; font-size: 0.8rem; letter-spacing: 1px; }
+
+.review-count {
+    font-size: 0.75rem;
+    color: var(--gray-medium);
+}
+
+/* ============ Promo price ============ */
+.old-price {
+    text-decoration: line-through;
+    color: var(--gray-medium);
+    font-size: 0.85rem;
+    margin-right: 8px;
+}
+
+.price.promo {
+    color: #c0392b;
+}
+
+/* ============ Stock warning ============ */
+.stock-warning {
+    font-size: 0.75rem;
+    color: #c0392b;
+    margin-bottom: 10px;
+}
+
+.stock-warning i { margin-right: 4px; }
+
+/* ============ Out of stock image ============ */
+.img-out-of-stock {
+    opacity: 0.5;
+    filter: grayscale(60%);
+}
+
+.btn-add:disabled {
+    background: var(--gray-medium);
+    cursor: not-allowed;
+    opacity: 0.6;
+}

@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const products = [
-        { id: 15, name: "Dr.Althea 147 Barrier Cream", price: 2800, category: "Visage", description: "Crème réparatrice qui renforce la barrière cutanée.", image: "images/products/Dr_Althea_147_Barrier_Cream.jpg" },
-        { id: 16, name: "Dr.Althea 345 Cream", price: 2800, category: "Visage", description: "Soin apaisant à base de centella asiatica.", image: "images/products/Dr_Althea_345_Relief_Cream.jpg" },
-        { id: 17, name: "Dr.Althea Vitamin C Serum", price: 3000, category: "Visage", description: "Sérum éclaircissant à la vitamine C pour un teint uniforme.", image: "images/products/Dr_Althea_Vitamin_C_Serum_Green.jpg" },
-        { id: 18, name: "Anua Ceramide Hydrating Barrier", price: 3200, category: "Visage", description: "Sérum aux céramides pour renforcer et hydrater la peau.", image: "images/products/Anua_Rice_7_Ceramide_Serum.jpg" },
-        { id: 19, name: "Anua Azelaic Acid Blue", price: 3200, category: "Visage", description: "Sérum apaisant à l'acide azélaïque, formule douce.", image: "images/products/Anua_PDRN_Hyaluron_Serum_Blue.jpg" },
-        { id: 20, name: "Anua Azelaic Acid Green", price: 3200, category: "Visage", description: "Sérum régulateur pour peaux à imperfections.", image: "images/products/Anua_Azelaic_Acid_10_Serum_Green.jpg" },
-        { id: 21, name: "Anua Azelaic Acid Red", price: 3200, category: "Visage", description: "Sérum intensif pour peaux à rougeurs et imperfections.", image: "images/products/Anua_Niacinamide_10_TXA_4_Serum_Red.jpg" },
-        { id: 22, name: "Retinal Shot Tightening Booster", price: 2800, category: "Visage", description: "Booster raffermissant au rétinal pour une peau plus ferme.", image: "images/products/Celimax_Retinal_Shot_Booster.jpg" },
-        { id: 23, name: "Centella Travel Kit", price: 2500, category: "Coffret", description: "Kit voyage complet à la centella asiatica apaisante.", image: "images/products/SKIN1004_Centella_Travel_Kit.jpg" },
-        { id: 24, name: "Kojic Savon", price: 1900, category: "Visage", description: "Savon éclaircissant à l'acide kojique, format value pack.", image: "images/products/Kojie_San_Soap.jpg" },
-        { id: 25, name: "Seoul 1988 Eye Cream", price: 2500, category: "Visage", description: "Contour des yeux anti-âge, texture fondante.", image: "images/products/K_Secret_Seoul_1988_Eye_Cream.jpg" },
-        { id: 26, name: "Centella Serum Marron 100ml", price: 2800, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 100ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg" },
-        { id: 27, name: "Centella Serum Marron 200ml", price: 3300, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 200ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg" },
-        { id: 28, name: "Centella Gel Rose", price: 2600, category: "Visage", description: "Gel apaisant et rafraîchissant à la centella asiatica.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg" },
-        { id: 29, name: "Embryolisse", price: 3300, category: "Visage", description: "Lait hydratant multi-usage, le soin culte des makeup artists.", image: "images/products/Embryolisse_Lait_Creme_Concentre.jpg" },
-        { id: 30, name: "345 Cream Mist", price: 2700, category: "Visage", description: "Brume hydratante pour un teint frais toute la journée.", image: "images/products/Dr_Althea_345_Cream_Mist.jpg" },
-        { id: 31, name: "Centella Ampoule Rose", price: 3100, category: "Visage", description: "Ampoule concentrée à la centella asiatica pour peaux sensibles.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg" }
+        { id: 15, name: "Dr.Althea 147 Barrier Cream", price: 2800, category: "Visage", description: "Crème réparatrice qui renforce la barrière cutanée.", image: "images/products/Dr_Althea_147_Barrier_Cream.jpg", stock: 6, rating: 4.6, reviews: 23, badge: null },
+        { id: 16, name: "Dr.Althea 345 Cream", price: 2800, category: "Visage", description: "Soin apaisant à base de centella asiatica.", image: "images/products/Dr_Althea_345_Relief_Cream.jpg", stock: 9, rating: 4.5, reviews: 31, badge: null },
+        { id: 17, name: "Dr.Althea Vitamin C Serum", price: 3000, category: "Visage", description: "Sérum éclaircissant à la vitamine C pour un teint uniforme.", image: "images/products/Dr_Althea_Vitamin_C_Serum_Green.jpg", stock: 5, rating: 4.8, reviews: 47, badge: "Meilleure vente" },
+        { id: 18, name: "Anua Ceramide Hydrating Barrier", price: 3200, category: "Visage", description: "Sérum aux céramides pour renforcer et hydrater la peau.", image: "images/products/Anua_Rice_7_Ceramide_Serum.jpg", stock: 5, rating: 4.4, reviews: 19, badge: null },
+        { id: 19, name: "Anua Azelaic Acid Blue", price: 3200, category: "Visage", description: "Sérum apaisant à l'acide azélaïque, formule douce.", image: "images/products/Anua_PDRN_Hyaluron_Serum_Blue.jpg", stock: 0, rating: 4.3, reviews: 12, badge: "Rupture de stock" },
+        { id: 20, name: "Anua Azelaic Acid Green", price: 3200, category: "Visage", description: "Sérum régulateur pour peaux à imperfections.", image: "images/products/Anua_Azelaic_Acid_10_Serum_Green.jpg", stock: 7, rating: 4.5, reviews: 28, badge: null },
+        { id: 21, name: "Anua Azelaic Acid Red", price: 3200, category: "Visage", description: "Sérum intensif pour peaux à rougeurs et imperfections.", image: "images/products/Anua_Niacinamide_10_TXA_4_Serum_Red.jpg", stock: 5, rating: 4.6, reviews: 34, badge: null },
+        { id: 22, name: "Retinal Shot Tightening Booster", price: 2800, category: "Visage", description: "Booster raffermissant au rétinal pour une peau plus ferme.", image: "images/products/Celimax_Retinal_Shot_Booster.jpg", stock: 13, rating: 4.7, reviews: 52, badge: "Meilleure vente" },
+        { id: 23, name: "Centella Travel Kit", price: 2500, category: "Coffret", description: "Kit voyage complet à la centella asiatica apaisante.", image: "images/products/SKIN1004_Centella_Travel_Kit.jpg", stock: 10, rating: 4.9, reviews: 89, badge: "Meilleure vente", oldPrice: 3200 },
+        { id: 24, name: "Kojic Savon", price: 1900, category: "Visage", description: "Savon éclaircissant à l'acide kojique, format value pack.", image: "images/products/Kojie_San_Soap.jpg", stock: 8, rating: 4.4, reviews: 15, badge: "Nouveau" },
+        { id: 25, name: "Seoul 1988 Eye Cream", price: 2500, category: "Visage", description: "Contour des yeux anti-âge, texture fondante.", image: "images/products/K_Secret_Seoul_1988_Eye_Cream.jpg", stock: 10, rating: 4.6, reviews: 26, badge: "Nouveau" },
+        { id: 26, name: "Centella Serum Marron 100ml", price: 2800, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 100ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg", stock: 9, rating: 4.5, reviews: 21, badge: null },
+        { id: 27, name: "Centella Serum Marron 200ml", price: 3300, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 200ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg", stock: 9, rating: 4.5, reviews: 18, badge: null },
+        { id: 28, name: "Centella Gel Rose", price: 2600, category: "Visage", description: "Gel apaisant et rafraîchissant à la centella asiatica.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg", stock: 9, rating: 4.4, reviews: 24, badge: null },
+        { id: 29, name: "Embryolisse", price: 3300, category: "Visage", description: "Lait hydratant multi-usage, le soin culte des makeup artists.", image: "images/products/Embryolisse_Lait_Creme_Concentre.jpg", stock: 1, rating: 4.8, reviews: 63, badge: null, oldPrice: 3800 },
+        { id: 30, name: "345 Cream Mist", price: 2700, category: "Visage", description: "Brume hydratante pour un teint frais toute la journée.", image: "images/products/Dr_Althea_345_Cream_Mist.jpg", stock: 1, rating: 4.3, reviews: 9, badge: null },
+        { id: 31, name: "Centella Ampoule Rose", price: 3100, category: "Visage", description: "Ampoule concentrée à la centella asiatica pour peaux sensibles.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg", stock: 16, rating: 4.7, reviews: 41, badge: "Meilleure vente", oldPrice: 3600 }
     ];
 
     // ---------- STATE ----------
@@ -86,20 +86,45 @@ document.addEventListener('DOMContentLoaded', () => {
         filtered.forEach(product => {
             const card = document.createElement('div');
             card.className = 'product-card';
+
+            const stars = renderStars(product.rating);
+            const badgeHtml = product.badge
+                ? `<span class="product-badge badge-${product.badge === 'Rupture de stock' ? 'out' : product.badge === 'Nouveau' ? 'new' : 'best'}">${product.badge}</span>`
+                : '';
+            const priceHtml = product.oldPrice
+                ? `<span class="old-price">${formatPrice(product.oldPrice)}</span> <span class="price promo">${formatPrice(product.price)}</span>`
+                : `<div class="price">${formatPrice(product.price)}</div>`;
+            const outOfStock = product.stock === 0;
+            const stockHtml = (!outOfStock && product.stock <= 5)
+                ? `<p class="stock-warning"><i class="fas fa-triangle-exclamation"></i> Il ne reste que ${product.stock} en stock !</p>`
+                : '';
+
             card.innerHTML = `
                 <span class="category-tag">${product.category}</span>
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                ${badgeHtml}
+                <img src="${product.image}" alt="${product.name}" loading="lazy" class="${outOfStock ? 'img-out-of-stock' : ''}">
                 <h3>${product.name}</h3>
+                <div class="rating-row">${stars} <span class="review-count">(${product.reviews})</span></div>
                 <p class="product-desc">${product.description}</p>
-                <div class="price">${formatPrice(product.price)}</div>
-                <button class="btn btn-add" data-id="${product.id}">Ajouter au panier</button>
+                ${priceHtml}
+                ${stockHtml}
+                <button class="btn btn-add" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${outOfStock ? 'Rupture de stock' : 'Ajouter au panier'}</button>
             `;
             productList.appendChild(card);
         });
 
-        document.querySelectorAll('.btn-add').forEach(btn => {
+        document.querySelectorAll('.btn-add:not([disabled])').forEach(btn => {
             btn.addEventListener('click', () => addToCart(parseInt(btn.dataset.id)));
         });
+    }
+
+    function renderStars(rating) {
+        const full = Math.round(rating);
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+            html += `<i class="fa-star ${i <= full ? 'fas' : 'far'}"></i>`;
+        }
+        return `<span class="stars">${html}</span>`;
     }
 
     // ---------- CART LOGIC ----------
