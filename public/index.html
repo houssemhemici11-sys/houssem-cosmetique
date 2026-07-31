@@ -24,6 +24,10 @@
                     <i class="fas fa-search"></i>
                     <input type="text" id="search-input" placeholder="Rechercher un produit...">
                 </div>
+                <button id="wishlist-btn" class="cart-btn wishlist-btn">
+                    <i class="fas fa-heart"></i>
+                    <span id="wishlist-count" class="cart-count">0</span>
+                </button>
                 <button id="cart-btn" class="cart-btn">
                     <i class="fas fa-shopping-bag"></i>
                     <span id="cart-count" class="cart-count">0</span>
@@ -132,7 +136,16 @@
 
     <a href="https://wa.me/213774597291" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-label">Besoin d'aide ?</span>
     </a>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal-overlay" class="product-modal-overlay">
+        <div class="product-modal">
+            <button id="close-product-modal" class="close-cart"><i class="fas fa-times"></i></button>
+            <div id="product-modal-body" class="product-modal-body"></div>
+        </div>
+    </div>
 
     <!-- Cart Drawer -->
     <div id="cart-overlay" class="cart-overlay"></div>
