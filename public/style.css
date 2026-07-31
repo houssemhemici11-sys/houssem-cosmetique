@@ -930,8 +930,7 @@ footer {
     text-align: center;
     color: var(--gray-medium);
     font-size: 0.9rem;
-    margin-top: -20px;
-    margin-bottom: 40px;
+    margin-top: 10px;
 }
 
 .routines-grid {
