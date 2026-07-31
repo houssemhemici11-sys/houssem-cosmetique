@@ -847,3 +847,44 @@ footer {
     .similar-grid { grid-template-columns: repeat(2, 1fr); }
     .modal-info { padding: 20px; }
 }
+
+/* ============ About Section ============ */
+.about-section {
+    padding: 80px 0;
+    background: var(--gray-light);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.about-block {
+    text-align: center;
+    padding: 20px;
+}
+
+.about-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 18px;
+}
+
+.about-block h3 {
+    font-family: 'Inter', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.about-block p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 30px; }
+}
