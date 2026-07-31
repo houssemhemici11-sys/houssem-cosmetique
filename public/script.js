@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---------- RENDER PRODUCTS ----------
-    function pName(p) { return currentLang === 'ar' && p.nameAr ? p.nameAr : p.name; }
+    function pName(p) { return p.name; }
     function pDesc(p) { return currentLang === 'ar' && p.descAr ? p.descAr : p.description; }
     function pCat(cat) { return (TRANSLATIONS[currentLang].categories && TRANSLATIONS[currentLang].categories[cat]) || cat; }
     function pBadge(badge) { return (TRANSLATIONS[currentLang].badges && TRANSLATIONS[currentLang].badges[badge]) || badge; }
@@ -442,9 +442,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             cartItemsEl.innerHTML = cart.map(item => `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${currentLang === 'ar' && item.nameAr ? item.nameAr : item.name}">
+                    <img src="${item.image}" alt="${item.name}">
                     <div class="cart-item-info">
-                        <h4>${currentLang === 'ar' && item.nameAr ? item.nameAr : item.name}</h4>
+                        <h4>${item.name}</h4>
                         <div class="cart-item-price">${formatPrice(item.price)}</div>
                         <div class="qty-controls">
                             <button class="qty-btn" data-action="minus" data-id="${item.id}">−</button>
@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         checkoutSummary.innerHTML = cart.map(item => `
             <div class="summary-line">
-                <span>${currentLang === 'ar' && item.nameAr ? item.nameAr : item.name} × ${item.qty}</span>
+                <span>${item.name} × ${item.qty}</span>
                 <span>${formatPrice(item.price * item.qty)}</span>
             </div>
         `).join('');
