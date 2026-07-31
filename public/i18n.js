@@ -52,7 +52,7 @@ const TRANSLATIONS = {
         emptyCartError: "Votre panier est vide. Ajoutez au moins un produit avant de commander.",
         orderSuccess: "Merci {name} ! Votre commande de {total} a été enregistrée. Nous vous contacterons bientôt au {phone}.",
         orderError: "Une erreur est survenue. Veuillez réessayer.",
-        categories: { "Tous": "Tous", "Visage": "Visage", "Corps": "Corps", "Maquillage": "Maquillage", "Parfum": "Parfum", "Coffret": "Coffret" },
+        categories: { "Tous": "Tous", "Visage": "Visage", "Corps": "Corps", "Maquillage": "Maquillage", "Parfum": "Parfum", "Coffret": "Coffret", "Cheveux": "Cheveux" },
         skinTypes: { "Tous": "Toutes peaux", "Grasse": "Grasse", "Sèche": "Sèche", "Sensible": "Sensible", "Mixte": "Mixte" },
         badges: { "Meilleure vente": "Meilleure vente", "Nouveau": "Nouveau", "Rupture de stock": "Rupture de stock" }
     },
@@ -109,7 +109,7 @@ const TRANSLATIONS = {
         emptyCartError: "سلتك فارغة. أضف منتجاً واحداً على الأقل قبل الطلب.",
         orderSuccess: "شكراً {name}! تم تسجيل طلبك بقيمة {total}. سنتصل بك قريباً على الرقم {phone}.",
         orderError: "حدث خطأ. حاول مرة أخرى.",
-        categories: { "Tous": "الكل", "Visage": "الوجه", "Corps": "الجسم", "Maquillage": "مكياج", "Parfum": "عطور", "Coffret": "طقم" },
+        categories: { "Tous": "الكل", "Visage": "الوجه", "Corps": "الجسم", "Maquillage": "مكياج", "Parfum": "عطور", "Coffret": "طقم", "Cheveux": "شعر" },
         skinTypes: { "Tous": "جميع أنواع البشرة", "Grasse": "دهنية", "Sèche": "جافة", "Sensible": "حساسة", "Mixte": "مختلطة" },
         badges: { "Meilleure vente": "الأكثر مبيعاً", "Nouveau": "جديد", "Rupture de stock": "نفدت الكمية" }
     }
