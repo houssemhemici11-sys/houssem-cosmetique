@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bureauNote = document.getElementById('bureau-note');
     const deliveryRadios = document.querySelectorAll('input[name="delivery-type"]');
     const wishlistBtn = document.getElementById('wishlist-btn');
+    const themeToggle = document.getElementById('theme-toggle');
     const wishlistCountEl = document.getElementById('wishlist-count');
     const productModalOverlay = document.getElementById('product-modal-overlay');
     const productModalBody = document.getElementById('product-modal-body');
@@ -154,6 +155,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return `<span class="stars">${html}</span>`;
     }
 
+    // ---------- DARK MODE ----------
+    function applyTheme(isDark) {
+        document.body.classList.toggle('dark-mode', isDark);
+        themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        localStorage.setItem('hc_theme', isDark ? 'dark' : 'light');
+    }
+
+    const savedTheme = localStorage.getItem('hc_theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme ? savedTheme === 'dark' : prefersDark);
+
+    themeToggle.addEventListener('click', () => {
+        applyTheme(!document.body.classList.contains('dark-mode'));
+    });
+
     // ---------- WISHLIST ----------
     function saveWishlist() {
         localStorage.setItem('hc_wishlist', JSON.stringify(wishlist));
@@ -209,8 +225,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         ` : '';
 
+        const images = product.images && product.images.length > 0 ? product.images : [product.image];
+        const galleryHtml = images.length > 1 ? `
+            <div class="modal-thumbs">
+                ${images.map((img, i) => `<img src="${img}" class="modal-thumb ${i === 0 ? 'active' : ''}" data-src="${img}">`).join('')}
+            </div>
+        ` : '';
+
         productModalBody.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" class="modal-img">
+            <img src="${images[0]}" alt="${product.name}" class="modal-img" id="modal-main-img">
+            ${galleryHtml}
             <div class="modal-info">
                 <span class="category-tag" style="position:static; display:inline-block; margin-bottom:10px;">${product.category}</span>
                 <h2>${product.name}</h2>
@@ -235,6 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         productModalBody.querySelectorAll('.similar-item').forEach(el => {
             el.addEventListener('click', () => openProductModal(parseInt(el.dataset.id)));
+        });
+
+        productModalBody.querySelectorAll('.modal-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                document.getElementById('modal-main-img').src = thumb.dataset.src;
+                productModalBody.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
         });
 
         productModalOverlay.classList.add('open');
