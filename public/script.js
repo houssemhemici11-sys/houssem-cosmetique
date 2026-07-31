@@ -1,33 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     const products = [
-        { id: 15, name: "Dr.Althea 147 Barrier Cream", price: 2800, category: "Visage", description: "Crème réparatrice qui renforce la barrière cutanée.", image: "images/products/Dr_Althea_147_Barrier_Cream.jpg", stock: 6, rating: 4.6, reviews: 23, badge: null, skinTypes: ["Sèche", "Sensible"] },
-        { id: 16, name: "Dr.Althea 345 Cream", price: 2800, category: "Visage", description: "Soin apaisant à base de centella asiatica.", image: "images/products/Dr_Althea_345_Relief_Cream.jpg", stock: 9, rating: 4.5, reviews: 31, badge: null, skinTypes: ["Sensible", "Sèche"] },
-        { id: 17, name: "Dr.Althea Vitamin C Serum", price: 3000, category: "Visage", description: "Sérum éclaircissant à la vitamine C pour un teint uniforme.", image: "images/products/Dr_Althea_Vitamin_C_Serum_Green.jpg", stock: 5, rating: 4.8, reviews: 47, badge: "Meilleure vente", skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"] },
-        { id: 18, name: "Anua Ceramide Hydrating Barrier", price: 3200, category: "Visage", description: "Sérum aux céramides pour renforcer et hydrater la peau.", image: "images/products/Anua_Rice_7_Ceramide_Serum.jpg", stock: 5, rating: 4.4, reviews: 19, badge: null, skinTypes: ["Sèche", "Sensible"] },
-        { id: 19, name: "Anua Azelaic Acid Blue", price: 3200, category: "Visage", description: "Sérum apaisant à l'acide azélaïque, formule douce.", image: "images/products/Anua_PDRN_Hyaluron_Serum_Blue.jpg", stock: 0, rating: 4.3, reviews: 12, badge: "Rupture de stock", skinTypes: ["Sensible"] },
-        { id: 20, name: "Anua Azelaic Acid Green", price: 3200, category: "Visage", description: "Sérum régulateur pour peaux à imperfections.", image: "images/products/Anua_Azelaic_Acid_10_Serum_Green.jpg", stock: 7, rating: 4.5, reviews: 28, badge: null, skinTypes: ["Grasse", "Mixte"] },
-        { id: 21, name: "Anua Azelaic Acid Red", price: 3200, category: "Visage", description: "Sérum intensif pour peaux à rougeurs et imperfections.", image: "images/products/Anua_Niacinamide_10_TXA_4_Serum_Red.jpg", stock: 5, rating: 4.6, reviews: 34, badge: null, skinTypes: ["Sensible", "Grasse"] },
-        { id: 22, name: "Retinal Shot Tightening Booster", price: 2800, category: "Visage", description: "Booster raffermissant au rétinal pour une peau plus ferme.", image: "images/products/Celimax_Retinal_Shot_Booster.jpg", stock: 13, rating: 4.7, reviews: 52, badge: "Meilleure vente", skinTypes: ["Mixte", "Sèche"] },
-        { id: 23, name: "Centella Travel Kit", price: 2500, category: "Coffret", description: "Kit voyage complet à la centella asiatica apaisante.", image: "images/products/SKIN1004_Centella_Travel_Kit.jpg", stock: 10, rating: 4.9, reviews: 89, badge: "Meilleure vente", oldPrice: 3200, skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"] },
-        { id: 24, name: "Kojic Savon", price: 1900, category: "Visage", description: "Savon éclaircissant à l'acide kojique, format value pack.", image: "images/products/Kojie_San_Soap.jpg", stock: 8, rating: 4.4, reviews: 15, badge: "Nouveau", skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"] },
-        { id: 25, name: "Seoul 1988 Eye Cream", price: 2500, category: "Visage", description: "Contour des yeux anti-âge, texture fondante.", image: "images/products/K_Secret_Seoul_1988_Eye_Cream.jpg", stock: 10, rating: 4.6, reviews: 26, badge: "Nouveau", skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"] },
-        { id: 26, name: "Centella Serum Marron 100ml", price: 2800, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 100ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg", stock: 9, rating: 4.5, reviews: 21, badge: null, skinTypes: ["Sensible", "Sèche"] },
-        { id: 27, name: "Centella Serum Marron 200ml", price: 3300, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 200ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg", stock: 9, rating: 4.5, reviews: 18, badge: null, skinTypes: ["Sensible", "Sèche"] },
-        { id: 28, name: "Centella Gel Rose", price: 2600, category: "Visage", description: "Gel apaisant et rafraîchissant à la centella asiatica.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg", stock: 9, rating: 4.4, reviews: 24, badge: null, skinTypes: ["Grasse", "Mixte"] },
-        { id: 29, name: "Embryolisse", price: 3300, category: "Visage", description: "Lait hydratant multi-usage, le soin culte des makeup artists.", image: "images/products/Embryolisse_Lait_Creme_Concentre.jpg", stock: 1, rating: 4.8, reviews: 63, badge: null, oldPrice: 3800, skinTypes: ["Sèche", "Grasse", "Sensible", "Mixte"] },
-        { id: 30, name: "345 Cream Mist", price: 2700, category: "Visage", description: "Brume hydratante pour un teint frais toute la journée.", image: "images/products/Dr_Althea_345_Cream_Mist.jpg", stock: 1, rating: 4.3, reviews: 9, badge: null, skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"] },
-        { id: 31, name: "Centella Ampoule Rose", price: 3100, category: "Visage", description: "Ampoule concentrée à la centella asiatica pour peaux sensibles.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg", stock: 16, rating: 4.7, reviews: 41, badge: "Meilleure vente", oldPrice: 3600, skinTypes: ["Sensible"] }
+        { id: 15, name: "Dr.Althea 147 Barrier Cream", price: 2800, category: "Visage", description: "Crème réparatrice qui renforce la barrière cutanée.", image: "images/products/Dr_Althea_147_Barrier_Cream.jpg", stock: 6, rating: 4.6, reviews: 23, badge: null, skinTypes: ["Sèche", "Sensible"], nameAr: "دراثيا 147 كريم حاجز", descAr: "كريم مرمم يعزز حاجز البشرة." },
+        { id: 16, name: "Dr.Althea 345 Cream", price: 2800, category: "Visage", description: "Soin apaisant à base de centella asiatica.", image: "images/products/Dr_Althea_345_Relief_Cream.jpg", stock: 9, rating: 4.5, reviews: 31, badge: null, skinTypes: ["Sensible", "Sèche"], nameAr: "دراثيا 345 كريم", descAr: "عناية مهدئة بخلاصة السنتيلا الآسيوية." },
+        { id: 17, name: "Dr.Althea Vitamin C Serum", price: 3000, category: "Visage", description: "Sérum éclaircissant à la vitamine C pour un teint uniforme.", image: "images/products/Dr_Althea_Vitamin_C_Serum_Green.jpg", stock: 5, rating: 4.8, reviews: 47, badge: "Meilleure vente", skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"], nameAr: "دراثيا سيروم فيتامين C", descAr: "سيروم مفتّح بفيتامين C لتوحيد لون البشرة." },
+        { id: 18, name: "Anua Ceramide Hydrating Barrier", price: 3200, category: "Visage", description: "Sérum aux céramides pour renforcer et hydrater la peau.", image: "images/products/Anua_Rice_7_Ceramide_Serum.jpg", stock: 5, rating: 4.4, reviews: 19, badge: null, skinTypes: ["Sèche", "Sensible"], nameAr: "أنوا سيروم السيراميد المرطب", descAr: "سيروم بالسيراميد لتقوية وترطيب البشرة." },
+        { id: 19, name: "Anua Azelaic Acid Blue", price: 3200, category: "Visage", description: "Sérum apaisant à l'acide azélaïque, formule douce.", image: "images/products/Anua_PDRN_Hyaluron_Serum_Blue.jpg", stock: 0, rating: 4.3, reviews: 12, badge: "Rupture de stock", skinTypes: ["Sensible"], nameAr: "أنوا سيروم حمض الأزيليك أزرق", descAr: "سيروم مهدئ بحمض الأزيليك بتركيبة لطيفة." },
+        { id: 20, name: "Anua Azelaic Acid Green", price: 3200, category: "Visage", description: "Sérum régulateur pour peaux à imperfections.", image: "images/products/Anua_Azelaic_Acid_10_Serum_Green.jpg", stock: 7, rating: 4.5, reviews: 28, badge: null, skinTypes: ["Grasse", "Mixte"], nameAr: "أنوا سيروم حمض الأزيليك أخضر", descAr: "سيروم منظم للبشرة ذات الشوائب." },
+        { id: 21, name: "Anua Azelaic Acid Red", price: 3200, category: "Visage", description: "Sérum intensif pour peaux à rougeurs et imperfections.", image: "images/products/Anua_Niacinamide_10_TXA_4_Serum_Red.jpg", stock: 5, rating: 4.6, reviews: 34, badge: null, skinTypes: ["Sensible", "Grasse"], nameAr: "أنوا سيروم حمض الأزيليك أحمر", descAr: "سيروم مكثف للاحمرار والشوائب." },
+        { id: 22, name: "Retinal Shot Tightening Booster", price: 2800, category: "Visage", description: "Booster raffermissant au rétinal pour une peau plus ferme.", image: "images/products/Celimax_Retinal_Shot_Booster.jpg", stock: 13, rating: 4.7, reviews: 52, badge: "Meilleure vente", skinTypes: ["Mixte", "Sèche"], nameAr: "بوستر ريتينال شادّ للبشرة", descAr: "بوستر شادّ بالريتينال لبشرة أكثر تماسكاً." },
+        { id: 23, name: "Centella Travel Kit", price: 2500, category: "Coffret", description: "Kit voyage complet à la centella asiatica apaisante.", image: "images/products/SKIN1004_Centella_Travel_Kit.jpg", stock: 10, rating: 4.9, reviews: 89, badge: "Meilleure vente", oldPrice: 3200, skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"], nameAr: "طقم سفر سنتيلا", descAr: "طقم سفر كامل بخلاصة السنتيلا المهدئة." },
+        { id: 24, name: "Kojic Savon", price: 1900, category: "Visage", description: "Savon éclaircissant à l'acide kojique, format value pack.", image: "images/products/Kojie_San_Soap.jpg", stock: 8, rating: 4.4, reviews: 15, badge: "Nouveau", skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"], nameAr: "صابون كوجيك", descAr: "صابون مفتّح بحمض الكوجيك، عبوة اقتصادية." },
+        { id: 25, name: "Seoul 1988 Eye Cream", price: 2500, category: "Visage", description: "Contour des yeux anti-âge, texture fondante.", image: "images/products/K_Secret_Seoul_1988_Eye_Cream.jpg", stock: 10, rating: 4.6, reviews: 26, badge: "Nouveau", skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"], nameAr: "كريم العين سيول 1988", descAr: "كريم مضاد للشيخوخة لمحيط العين، ملمس ذائب." },
+        { id: 26, name: "Centella Serum Marron 100ml", price: 2800, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 100ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg", stock: 9, rating: 4.5, reviews: 21, badge: null, skinTypes: ["Sensible", "Sèche"], nameAr: "سيروم سنتيلا بني 100 مل", descAr: "سيروم مهدئ بالسنتيلا الآسيوية، حجم 100 مل." },
+        { id: 27, name: "Centella Serum Marron 200ml", price: 3300, category: "Visage", description: "Sérum apaisant à la centella asiatica, format 200ml.", image: "images/products/SKIN1004_Centella_Ampoule_Marron.jpg", stock: 9, rating: 4.5, reviews: 18, badge: null, skinTypes: ["Sensible", "Sèche"], nameAr: "سيروم سنتيلا بني 200 مل", descAr: "سيروم مهدئ بالسنتيلا الآسيوية، حجم 200 مل." },
+        { id: 28, name: "Centella Gel Rose", price: 2600, category: "Visage", description: "Gel apaisant et rafraîchissant à la centella asiatica.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg", stock: 9, rating: 4.4, reviews: 24, badge: null, skinTypes: ["Grasse", "Mixte"], nameAr: "جل سنتيلا وردي", descAr: "جل مهدئ ومنعش بالسنتيلا الآسيوية." },
+        { id: 29, name: "Embryolisse", price: 3300, category: "Visage", description: "Lait hydratant multi-usage, le soin culte des makeup artists.", image: "images/products/Embryolisse_Lait_Creme_Concentre.jpg", stock: 1, rating: 4.8, reviews: 63, badge: null, oldPrice: 3800, skinTypes: ["Sèche", "Grasse", "Sensible", "Mixte"], nameAr: "إمبريوليس", descAr: "حليب مرطب متعدد الاستخدامات، المنتج المفضل لدى خبراء المكياج." },
+        { id: 30, name: "345 Cream Mist", price: 2700, category: "Visage", description: "Brume hydratante pour un teint frais toute la journée.", image: "images/products/Dr_Althea_345_Cream_Mist.jpg", stock: 1, rating: 4.3, reviews: 9, badge: null, skinTypes: ["Grasse", "Sèche", "Sensible", "Mixte"], nameAr: "345 رذاذ مرطب", descAr: "رذاذ مرطب لبشرة منتعشة طوال اليوم." },
+        { id: 31, name: "Centella Ampoule Rose", price: 3100, category: "Visage", description: "Ampoule concentrée à la centella asiatica pour peaux sensibles.", image: "images/products/SKIN1004_Poremizing_Ampoule_Rose.jpg", stock: 16, rating: 4.7, reviews: 41, badge: "Meilleure vente", oldPrice: 3600, skinTypes: ["Sensible"], nameAr: "أمبولة سنتيلا وردي", descAr: "أمبولة مركزة بالسنتيلا للبشرة الحساسة." }
     ];
 
     const routines = [
         {
             title: "Routine Éclat & Hydratation",
+            titleAr: "روتين الإشراق والترطيب",
             description: "Vitamine C pour l'éclat, céramides pour hydrater, crème barrière pour protéger.",
+            descriptionAr: "فيتامين C للإشراق، سيراميد للترطيب، كريم حاجز للحماية.",
             productIds: [17, 18, 15, 30]
         },
         {
             title: "Routine Apaisante Centella",
+            titleAr: "روتين سنتيلا المهدئ",
             description: "Le trio centella asiatica pour calmer et réparer les peaux sensibles.",
+            descriptionAr: "ثلاثية السنتيلا الآسيوية لتهدئة وإصلاح البشرة الحساسة.",
             productIds: [26, 28, 31]
         }
     ];
@@ -68,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deliveryRadios = document.querySelectorAll('input[name="delivery-type"]');
     const wishlistBtn = document.getElementById('wishlist-btn');
     const themeToggle = document.getElementById('theme-toggle');
+    const langToggle = document.getElementById('lang-toggle');
     const wishlistCountEl = document.getElementById('wishlist-count');
     const productModalOverlay = document.getElementById('product-modal-overlay');
     const productModalBody = document.getElementById('product-modal-body');
@@ -76,36 +81,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const formatPrice = (n) => n.toLocaleString('fr-FR') + ' DA';
 
     // ---------- CATEGORY BAR ----------
-    const categories = ['Tous', ...new Set(products.map(p => p.category))];
-    categories.forEach(cat => {
-        const btn = document.createElement('button');
-        btn.className = 'category-chip' + (cat === 'Tous' ? ' active' : '');
-        btn.textContent = cat;
-        btn.dataset.cat = cat;
-        btn.addEventListener('click', () => {
-            activeCategory = cat;
-            document.querySelectorAll('.category-chip').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderProducts();
+    const categoryKeys = ['Tous', ...new Set(products.map(p => p.category))];
+    function renderCategoryBar() {
+        categoryBar.innerHTML = '';
+        categoryKeys.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = 'category-chip' + (cat === activeCategory ? ' active' : '');
+            btn.textContent = (TRANSLATIONS[currentLang].categories && TRANSLATIONS[currentLang].categories[cat]) || cat;
+            btn.dataset.cat = cat;
+            btn.addEventListener('click', () => {
+                activeCategory = cat;
+                document.querySelectorAll('.category-chip').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderProducts();
+            });
+            categoryBar.appendChild(btn);
         });
-        categoryBar.appendChild(btn);
-    });
+    }
+    renderCategoryBar();
 
     // ---------- SKIN TYPE BAR ----------
-    const skinTypes = ['Tous', 'Grasse', 'Sèche', 'Sensible', 'Mixte'];
-    skinTypes.forEach(type => {
-        const btn = document.createElement('button');
-        btn.className = 'category-chip skin-chip' + (type === 'Tous' ? ' active' : '');
-        btn.textContent = type === 'Tous' ? 'Toutes peaux' : type;
-        btn.dataset.type = type;
-        btn.addEventListener('click', () => {
-            activeSkinType = type;
-            document.querySelectorAll('.skin-chip').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderProducts();
+    const skinTypeKeys = ['Tous', 'Grasse', 'Sèche', 'Sensible', 'Mixte'];
+    function renderSkinTypeBar() {
+        skinTypeBar.innerHTML = '';
+        skinTypeKeys.forEach(type => {
+            const btn = document.createElement('button');
+            btn.className = 'category-chip skin-chip' + (type === activeSkinType ? ' active' : '');
+            btn.textContent = (TRANSLATIONS[currentLang].skinTypes && TRANSLATIONS[currentLang].skinTypes[type]) || type;
+            btn.dataset.type = type;
+            btn.addEventListener('click', () => {
+                activeSkinType = type;
+                document.querySelectorAll('.skin-chip').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderProducts();
+            });
+            skinTypeBar.appendChild(btn);
         });
-        skinTypeBar.appendChild(btn);
-    });
+    }
+    renderSkinTypeBar();
 
     // ---------- SEARCH ----------
     searchInput.addEventListener('input', (e) => {
@@ -119,19 +132,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const items = routine.productIds.map(id => products.find(p => p.id === id)).filter(Boolean);
             const total = items.reduce((sum, p) => sum + p.price, 0);
             const bundlePrice = Math.round(total * 0.92 / 50) * 50;
-            const thumbsHtml = items.map(p => `<img src="${p.image}" alt="${p.name}" title="${p.name}">`).join('');
-            const namesHtml = items.map(p => `<li>${p.name}</li>`).join('');
+            const thumbsHtml = items.map(p => `<img src="${p.image}" alt="${pName(p)}" title="${pName(p)}">`).join('');
+            const namesHtml = items.map(p => `<li>${pName(p)}</li>`).join('');
             return `
                 <div class="routine-card">
                     <div class="routine-thumbs">${thumbsHtml}</div>
-                    <h3>${routine.title}</h3>
-                    <p class="routine-desc">${routine.description}</p>
+                    <h3>${currentLang === 'ar' ? routine.titleAr : routine.title}</h3>
+                    <p class="routine-desc">${currentLang === 'ar' ? routine.descriptionAr : routine.description}</p>
                     <ul class="routine-list">${namesHtml}</ul>
                     <div class="routine-price">
                         <span class="old-price">${formatPrice(total)}</span>
                         <span class="price promo">${formatPrice(bundlePrice)}</span>
                     </div>
-                    <button class="btn routine-add" data-idx="${idx}">Ajouter toute la routine</button>
+                    <button class="btn routine-add" data-idx="${idx}">${t('addRoutine')}</button>
                 </div>
             `;
         }).join('');
@@ -150,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (existing) {
                 existing.qty += 1;
             } else {
-                cart.push({ id: product.id, name: product.name, price: product.price, image: product.image, qty: 1 });
+                cart.push({ id: product.id, name: product.name, nameAr: product.nameAr, price: product.price, image: product.image, qty: 1 });
             }
         });
         saveCart();
@@ -159,11 +172,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---------- RENDER PRODUCTS ----------
+    function pName(p) { return currentLang === 'ar' && p.nameAr ? p.nameAr : p.name; }
+    function pDesc(p) { return currentLang === 'ar' && p.descAr ? p.descAr : p.description; }
+    function pCat(cat) { return (TRANSLATIONS[currentLang].categories && TRANSLATIONS[currentLang].categories[cat]) || cat; }
+    function pBadge(badge) { return (TRANSLATIONS[currentLang].badges && TRANSLATIONS[currentLang].badges[badge]) || badge; }
+
     function renderProducts() {
         const filtered = products.filter(p => {
             const matchCat = activeCategory === 'Tous' || p.category === activeCategory;
             const matchSkin = activeSkinType === 'Tous' || (p.skinTypes && p.skinTypes.includes(activeSkinType));
-            const matchSearch = p.name.toLowerCase().includes(searchTerm) || p.description.toLowerCase().includes(searchTerm);
+            const matchSearch = p.name.toLowerCase().includes(searchTerm) || p.description.toLowerCase().includes(searchTerm) || (p.nameAr && p.nameAr.includes(searchTerm)) || (p.descAr && p.descAr.includes(searchTerm));
             const matchFav = !showFavoritesOnly || wishlist.includes(p.id);
             return matchCat && matchSkin && matchSearch && matchFav;
         });
@@ -171,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
         productList.innerHTML = '';
         noResults.style.display = filtered.length === 0 ? 'block' : 'none';
         if (filtered.length === 0 && showFavoritesOnly) {
-            noResults.textContent = "Vous n'avez pas encore de favoris. Appuyez sur ❤️ sur un produit pour l'ajouter.";
+            noResults.textContent = t('noFavorites');
         } else {
-            noResults.textContent = "Aucun produit ne correspond à votre recherche.";
+            noResults.textContent = t('noResults');
         }
 
         filtered.forEach(product => {
@@ -182,31 +200,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const stars = renderStars(product.rating);
             const badgeHtml = product.badge
-                ? `<span class="product-badge badge-${product.badge === 'Rupture de stock' ? 'out' : product.badge === 'Nouveau' ? 'new' : 'best'}">${product.badge}</span>`
+                ? `<span class="product-badge badge-${product.badge === 'Rupture de stock' ? 'out' : product.badge === 'Nouveau' ? 'new' : 'best'}">${pBadge(product.badge)}</span>`
                 : '';
             const priceHtml = product.oldPrice
                 ? `<span class="old-price">${formatPrice(product.oldPrice)}</span> <span class="price promo">${formatPrice(product.price)}</span>`
                 : `<div class="price">${formatPrice(product.price)}</div>`;
             const outOfStock = product.stock === 0;
             const stockHtml = (!outOfStock && product.stock <= 5)
-                ? `<p class="stock-warning"><i class="fas fa-triangle-exclamation"></i> Il ne reste que ${product.stock} en stock !</p>`
+                ? `<p class="stock-warning"><i class="fas fa-triangle-exclamation"></i> ${t('stockWarning', { n: product.stock })}</p>`
                 : '';
             const isFav = wishlist.includes(product.id);
 
             card.innerHTML = `
-                <span class="category-tag">${product.category}</span>
+                <span class="category-tag">${pCat(product.category)}</span>
                 ${badgeHtml}
                 <button class="wishlist-heart ${isFav ? 'active' : ''}" data-id="${product.id}"><i class="${isFav ? 'fas' : 'far'} fa-heart"></i></button>
                 <div class="product-clickable" data-id="${product.id}">
-                    <img src="${product.image}" alt="${product.name}" loading="lazy" class="${outOfStock ? 'img-out-of-stock' : ''}">
-                    <h3>${product.name}</h3>
+                    <img src="${product.image}" alt="${pName(product)}" loading="lazy" class="${outOfStock ? 'img-out-of-stock' : ''}">
+                    <h3>${pName(product)}</h3>
                 </div>
                 <div class="rating-row">${stars} <span class="review-count">(${product.reviews})</span></div>
-                <p class="product-desc">${product.description}</p>
+                <p class="product-desc">${pDesc(product)}</p>
                 ${priceHtml}
                 ${stockHtml}
-                <button class="btn btn-add" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${outOfStock ? 'Rupture de stock' : 'Ajouter au panier'}</button>
-                <button class="btn-quick-order" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>Commander en 1 clic</button>
+                <button class="btn btn-add" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${outOfStock ? t('outOfStock') : t('addToCart')}</button>
+                <button class="btn-quick-order" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${t('quickOrder')}</button>
             `;
             productList.appendChild(card);
         });
@@ -292,12 +310,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const similar = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 3);
         const similarHtml = similar.length > 0 ? `
             <div class="similar-products">
-                <h4>Produits similaires</h4>
+                <h4>${t('similarProducts')}</h4>
                 <div class="similar-grid">
                     ${similar.map(p => `
                         <div class="similar-item" data-id="${p.id}">
-                            <img src="${p.image}" alt="${p.name}">
-                            <p>${p.name}</p>
+                            <img src="${p.image}" alt="${pName(p)}">
+                            <p>${pName(p)}</p>
                         </div>
                     `).join('')}
                 </div>
@@ -312,18 +330,18 @@ document.addEventListener('DOMContentLoaded', () => {
         ` : '';
 
         productModalBody.innerHTML = `
-            <img src="${images[0]}" alt="${product.name}" class="modal-img" id="modal-main-img">
+            <img src="${images[0]}" alt="${pName(product)}" class="modal-img" id="modal-main-img">
             ${galleryHtml}
             <div class="modal-info">
-                <span class="category-tag" style="position:static; display:inline-block; margin-bottom:10px;">${product.category}</span>
-                <h2>${product.name}</h2>
-                <div class="rating-row">${stars} <span class="review-count">(${product.reviews} avis)</span></div>
+                <span class="category-tag" style="position:static; display:inline-block; margin-bottom:10px;">${pCat(product.category)}</span>
+                <h2>${pName(product)}</h2>
+                <div class="rating-row">${stars} <span class="review-count">(${product.reviews} ${t('reviewsSuffix')})</span></div>
                 <div class="modal-price-row">${priceHtml}</div>
-                <p class="modal-desc">${product.description}</p>
-                ${!outOfStock && product.stock <= 5 ? `<p class="stock-warning"><i class="fas fa-triangle-exclamation"></i> Il ne reste que ${product.stock} en stock !</p>` : ''}
+                <p class="modal-desc">${pDesc(product)}</p>
+                ${!outOfStock && product.stock <= 5 ? `<p class="stock-warning"><i class="fas fa-triangle-exclamation"></i> ${t('stockWarning', { n: product.stock })}</p>` : ''}
                 <div class="modal-actions">
-                    <button class="btn modal-add" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${outOfStock ? 'Rupture de stock' : 'Ajouter au panier'}</button>
-                    <button class="btn-quick-order modal-quick" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>Commander en 1 clic</button>
+                    <button class="btn modal-add" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${outOfStock ? t('outOfStock') : t('addToCart')}</button>
+                    <button class="btn-quick-order modal-quick" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${t('quickOrder')}</button>
                 </div>
                 ${similarHtml}
             </div>
@@ -368,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (existing) {
             existing.qty += 1;
         } else {
-            cart.push({ id: product.id, name: product.name, price: product.price, image: product.image, qty: 1 });
+            cart.push({ id: product.id, name: product.name, nameAr: product.nameAr, price: product.price, image: product.image, qty: 1 });
         }
         saveCart();
         updateCartUI();
@@ -388,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
             existing.qty += 1;
         } else {
             const product = products.find(p => p.id === id);
-            cart.push({ id: product.id, name: product.name, price: product.price, image: product.image, qty: 1 });
+            cart.push({ id: product.id, name: product.name, nameAr: product.nameAr, price: product.price, image: product.image, qty: 1 });
         }
         saveCart();
         updateCartUI();
@@ -420,13 +438,13 @@ document.addEventListener('DOMContentLoaded', () => {
         cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
 
         if (cart.length === 0) {
-            cartItemsEl.innerHTML = '<p class="cart-empty">Votre panier est vide.</p>';
+            cartItemsEl.innerHTML = `<p class="cart-empty">${t('cartEmpty')}</p>`;
         } else {
             cartItemsEl.innerHTML = cart.map(item => `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}">
+                    <img src="${item.image}" alt="${currentLang === 'ar' && item.nameAr ? item.nameAr : item.name}">
                     <div class="cart-item-info">
-                        <h4>${item.name}</h4>
+                        <h4>${currentLang === 'ar' && item.nameAr ? item.nameAr : item.name}</h4>
                         <div class="cart-item-price">${formatPrice(item.price)}</div>
                         <div class="qty-controls">
                             <button class="qty-btn" data-action="minus" data-id="${item.id}">−</button>
@@ -453,13 +471,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCheckoutSummary() {
         if (!checkoutSummary) return;
         if (cart.length === 0) {
-            checkoutSummary.innerHTML = '<p class="cart-empty">Ajoutez des produits à votre panier pour commander.</p>';
+            checkoutSummary.innerHTML = `<p class="cart-empty">${t('cartEmpty')}</p>`;
             checkoutTotal.textContent = formatPrice(0);
             return;
         }
         checkoutSummary.innerHTML = cart.map(item => `
             <div class="summary-line">
-                <span>${item.name} × ${item.qty}</span>
+                <span>${currentLang === 'ar' && item.nameAr ? item.nameAr : item.name} × ${item.qty}</span>
                 <span>${formatPrice(item.price * item.qty)}</span>
             </div>
         `).join('');
@@ -499,13 +517,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ---------- WILAYA / COMMUNE DROPDOWNS ----------
+    function renderWilayaOptions() {
+        const prevValue = wilayaSelect.value;
+        wilayaSelect.innerHTML = `<option value="" disabled ${!prevValue ? 'selected' : ''}>${t('wilayaPlaceholder')}</option>`;
+        if (typeof ALGERIA_WILAYAS !== 'undefined') {
+            ALGERIA_WILAYAS.forEach(w => {
+                const opt = document.createElement('option');
+                opt.value = w.code;
+                opt.textContent = `${w.code} - ${currentLang === 'ar' && w.nameAr ? w.nameAr : w.name}`;
+                wilayaSelect.appendChild(opt);
+            });
+            if (prevValue) wilayaSelect.value = prevValue;
+        }
+    }
+
     if (typeof ALGERIA_WILAYAS !== 'undefined') {
-        ALGERIA_WILAYAS.forEach(w => {
-            const opt = document.createElement('option');
-            opt.value = w.code;
-            opt.textContent = `${w.code} - ${w.name}`;
-            wilayaSelect.appendChild(opt);
-        });
+        renderWilayaOptions();
 
         wilayaSelect.addEventListener('change', () => {
             const wilaya = ALGERIA_WILAYAS.find(w => w.code === wilayaSelect.value);
@@ -516,12 +543,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 defaultOpt.value = '';
                 defaultOpt.disabled = true;
                 defaultOpt.selected = true;
-                defaultOpt.textContent = 'Choisissez votre commune';
+                defaultOpt.textContent = t('communePlaceholder');
                 communeSelect.appendChild(defaultOpt);
                 wilaya.communes.forEach(c => {
                     const opt = document.createElement('option');
                     opt.value = c;
-                    opt.textContent = c;
+                    opt.textContent = currentLang === 'ar' && wilaya.communesAr && wilaya.communesAr[c] ? wilaya.communesAr[c] : c;
                     communeSelect.appendChild(opt);
                 });
             } else {
@@ -537,14 +564,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cart.length === 0) {
             orderMessage.style.display = 'block';
             orderMessage.style.color = 'red';
-            orderMessage.textContent = "Votre panier est vide. Ajoutez au moins un produit avant de commander.";
+            orderMessage.textContent = t('emptyCartError');
             return;
         }
 
         if (!wilayaSelect.value || !communeSelect.value) {
             orderMessage.style.display = 'block';
             orderMessage.style.color = 'red';
-            orderMessage.textContent = "Merci de choisir votre wilaya et votre commune.";
+            orderMessage.textContent = t('chooseWilayaCommune');
             return;
         }
 
@@ -556,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
             instagram: document.getElementById('instagram').value,
             wilaya: wilayaSelect.options[wilayaSelect.selectedIndex].text,
             commune: communeSelect.value,
-            deliveryType: deliveryType === 'bureau' ? 'Au bureau (Stop Desk)' : 'À domicile',
+            deliveryType: deliveryType === 'bureau' ? t('deliveryBureau') : t('deliveryDomicile'),
             address: deliveryType === 'bureau' ? '' : document.getElementById('address').value,
             items: cart,
             total: cartTotal()
@@ -572,9 +599,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 orderMessage.style.display = 'block';
                 orderMessage.style.color = 'green';
-                orderMessage.innerHTML = `<i class="fas fa-check-circle"></i> Merci ${formData.name} ! Votre commande de <strong>${formatPrice(formData.total)}</strong> a été enregistrée. Nous vous contacterons bientôt au ${formData.phone}.`;
+                orderMessage.innerHTML = `<i class="fas fa-check-circle"></i> ${t('orderSuccess', { name: formData.name, total: `<strong>${formatPrice(formData.total)}</strong>`, phone: formData.phone })}`;
                 orderForm.reset();
-                communeSelect.innerHTML = '<option value="" disabled selected>Choisissez d\'abord une wilaya</option>';
+                communeSelect.innerHTML = `<option value="" disabled selected>${t('communePlaceholderDefault')}</option>`;
                 communeSelect.disabled = true;
                 addressGroup.style.display = 'block';
                 addressInput.required = true;
@@ -588,13 +615,31 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             orderMessage.style.display = 'block';
             orderMessage.style.color = 'red';
-            orderMessage.textContent = "Une erreur est survenue. Veuillez réessayer.";
+            orderMessage.textContent = t('orderError');
         }
     });
 
     // ---------- INIT ----------
+    applyStaticTranslations();
     renderRoutines();
     renderProducts();
     updateCartUI();
     updateWishlistUI();
+
+    langToggle.addEventListener('click', () => {
+        setLanguage(currentLang === 'ar' ? 'fr' : 'ar');
+    });
+
+    window.onLanguageChange = function () {
+        renderCategoryBar();
+        renderSkinTypeBar();
+        renderProducts();
+        renderRoutines();
+        updateCartUI();
+        if (typeof ALGERIA_WILAYAS !== 'undefined') {
+            renderWilayaOptions();
+            communeSelect.innerHTML = `<option value="" disabled selected>${t('communePlaceholderDefault')}</option>`;
+            communeSelect.disabled = true;
+        }
+    };
 });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="promo-banner">
+    <div class="promo-banner" data-i18n="promoBanner">
         <i class="fas fa-truck-fast"></i> Livraison GRATUITE à partir de 5000 DA d'achat sur tout le territoire national
     </div>
 
@@ -17,13 +17,14 @@
         <div class="container header-inner">
             <div class="brand">
                 <h1>Houssem Cosmetics</h1>
-                <p>L'excellence cosmétique en Algérie</p>
+                <p data-i18n="brandTagline">L'excellence cosmétique en Algérie</p>
             </div>
             <div class="header-actions">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="search-input" placeholder="Rechercher un produit...">
+                    <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Rechercher un produit...">
                 </div>
+                <button id="lang-toggle" class="cart-btn lang-toggle-btn">AR</button>
                 <button id="theme-toggle" class="cart-btn theme-toggle-btn">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -41,17 +42,17 @@
 
     <section class="hero">
         <div class="container">
-            <h2>Révélez votre beauté naturelle</h2>
-            <p>Découvrez notre gamme exclusive de produits cosmétiques haut de gamme, conçus pour sublimer votre peau avec des ingrédients naturels.</p>
-            <a href="#shop" class="btn">Découvrir la collection</a>
+            <h2 data-i18n="heroTitle">Révélez votre beauté naturelle</h2>
+            <p data-i18n="heroText">Découvrez notre gamme exclusive de produits cosmétiques haut de gamme, conçus pour sublimer votre peau avec des ingrédients naturels.</p>
+            <a href="#shop" class="btn" data-i18n="heroBtn">Découvrir la collection</a>
         </div>
     </section>
 
     <section class="routines-section" id="routines">
         <div class="container">
             <div class="section-title">
-                <h2>Routines Complètes</h2>
-                <p class="section-subtitle">Des combinaisons pensées pour des résultats optimaux</p>
+                <h2 data-i18n="routinesTitle">Routines Complètes</h2>
+                <p class="section-subtitle" data-i18n="routinesSubtitle">Des combinaisons pensées pour des résultats optimaux</p>
             </div>
             <div class="routines-grid" id="routines-grid"></div>
         </div>
@@ -60,14 +61,14 @@
     <section class="products" id="shop">
         <div class="container">
             <div class="section-title">
-                <h2>Nos Produits</h2>
+                <h2 data-i18n="shopTitle">Nos Produits</h2>
             </div>
             <div class="category-bar" id="category-bar"></div>
             <div class="category-bar skin-type-bar" id="skin-type-bar"></div>
             <div class="product-grid" id="product-list">
                 <!-- Les produits seront injectés par JavaScript -->
             </div>
-            <p id="no-results" style="display:none; text-align:center; color: var(--gray-medium); margin-top: 30px;">
+            <p id="no-results" style="display:none; text-align:center; color: var(--gray-medium); margin-top: 30px;" data-i18n="noResults">
                 Aucun produit ne correspond à votre recherche.
             </p>
         </div>
@@ -77,71 +78,71 @@
         <div class="container">
             <div class="order-container">
                 <div class="section-title">
-                    <h2>Passer une Commande</h2>
+                    <h2 data-i18n="orderTitle">Passer une Commande</h2>
                 </div>
 
                 <div class="checkout-summary-box">
-                    <h4>Récapitulatif du panier</h4>
+                    <h4 data-i18n="summaryTitle">Récapitulatif du panier</h4>
                     <div id="checkout-summary"></div>
                     <div class="summary-total">
-                        <span>Total</span>
+                        <span data-i18n="totalLabel">Total</span>
                         <span id="checkout-total">0 DA</span>
                     </div>
                 </div>
 
                 <form id="order-form" class="order-form">
                     <div class="form-group">
-                        <label for="name">Nom Complet</label>
-                        <input type="text" id="name" required placeholder="Ex: Ahmed Benali">
+                        <label for="name" data-i18n="nameLabel">Nom Complet</label>
+                        <input type="text" id="name" required data-i18n-placeholder="namePlaceholder" placeholder="Ex: Ahmed Benali">
                     </div>
                     <div class="form-group">
-                        <label for="phone">Numéro de Téléphone</label>
-                        <input type="tel" id="phone" required placeholder="Ex: 0550 00 00 00">
+                        <label for="phone" data-i18n="phoneLabel">Numéro de Téléphone</label>
+                        <input type="tel" id="phone" required data-i18n-placeholder="phonePlaceholder" placeholder="Ex: 0550 00 00 00">
                     </div>
                     <div class="form-group">
-                        <label for="instagram">Compte Instagram (optionnel)</label>
-                        <input type="text" id="instagram" placeholder="Ex: @nom_utilisateur">
+                        <label for="instagram" data-i18n="instagramLabel">Compte Instagram (optionnel)</label>
+                        <input type="text" id="instagram" data-i18n-placeholder="instagramPlaceholder" placeholder="Ex: @nom_utilisateur">
                     </div>
                     <div class="form-group">
-                        <label for="wilaya">Wilaya</label>
+                        <label for="wilaya" data-i18n="wilayaLabel">Wilaya</label>
                         <select id="wilaya" required>
-                            <option value="" disabled selected>Choisissez votre wilaya</option>
+                            <option value="" disabled selected data-i18n="wilayaPlaceholder">Choisissez votre wilaya</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="commune">Commune</label>
+                        <label for="commune" data-i18n="communeLabel">Commune</label>
                         <select id="commune" required disabled>
-                            <option value="" disabled selected>Choisissez d'abord une wilaya</option>
+                            <option value="" disabled selected data-i18n="communePlaceholderDefault">Choisissez d'abord une wilaya</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Mode de Livraison</label>
+                        <label data-i18n="deliveryLabel">Mode de Livraison</label>
                         <div class="delivery-options">
                             <label class="delivery-option">
                                 <input type="radio" name="delivery-type" value="domicile" checked>
-                                <span><i class="fas fa-house"></i> À domicile</span>
+                                <span><i class="fas fa-house"></i> <span data-i18n="deliveryDomicile">À domicile</span></span>
                             </label>
                             <label class="delivery-option">
                                 <input type="radio" name="delivery-type" value="bureau">
-                                <span><i class="fas fa-building"></i> Au bureau (Stop Desk)</span>
+                                <span><i class="fas fa-building"></i> <span data-i18n="deliveryBureau">Au bureau (Stop Desk)</span></span>
                             </label>
                         </div>
                     </div>
                     <div class="form-group" id="address-group">
-                        <label for="address">Adresse Précise (rue, quartier...)</label>
-                        <textarea id="address" rows="3" required placeholder="Ex: Cité 500 logements, Bloc B, N°12"></textarea>
+                        <label for="address" data-i18n="addressLabel">Adresse Précise (rue, quartier...)</label>
+                        <textarea id="address" rows="3" required data-i18n-placeholder="addressPlaceholder" placeholder="Ex: Cité 500 logements, Bloc B, N°12"></textarea>
                     </div>
-                    <p id="bureau-note" style="display:none; font-size: 0.85rem; color: var(--gray-medium); margin-top: -12px; margin-bottom: 20px;">
+                    <p id="bureau-note" style="display:none; font-size: 0.85rem; color: var(--gray-medium); margin-top: -12px; margin-bottom: 20px;" data-i18n="bureauNote">
                         <i class="fas fa-info-circle"></i> Vous récupérerez votre colis au bureau de livraison de votre commune. Nous vous communiquerons l'adresse exacte lors de la confirmation.
                     </p>
 
                     <div class="payment-info">
-                        <h4><i class="fas fa-truck"></i> Paiement à la Livraison</h4>
-                        <p>Le paiement s'effectue en espèces lors de la réception de votre colis.</p>
-                        <p><strong>Livraison disponible sur 58 Wilayas.</strong></p>
+                        <h4><i class="fas fa-truck"></i> <span data-i18n="paymentTitle">Paiement à la Livraison</span></h4>
+                        <p data-i18n="paymentText">Le paiement s'effectue en espèces lors de la réception de votre colis.</p>
+                        <p><strong data-i18n="paymentWilayasText">Livraison disponible sur 58 Wilayas.</strong></p>
                     </div>
 
-                    <button type="submit" class="btn" style="width: 100%;">Confirmer ma Commande</button>
+                    <button type="submit" class="btn" style="width: 100%;" data-i18n="confirmBtn">Confirmer ma Commande</button>
                 </form>
                 <div id="order-message" style="margin-top: 20px; text-align: center; display: none;"></div>
             </div>
@@ -150,7 +151,7 @@
 
     <a href="https://wa.me/213774597291" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-label">Besoin d'aide ?</span>
+        <span class="whatsapp-label" data-i18n="whatsappLabel">Besoin d'aide ?</span>
     </a>
 
     <!-- Product Detail Modal -->
@@ -165,27 +166,28 @@
     <div id="cart-overlay" class="cart-overlay"></div>
     <aside id="cart-drawer" class="cart-drawer">
         <div class="cart-drawer-header">
-            <h3><i class="fas fa-shopping-bag"></i> Mon Panier</h3>
+            <h3><i class="fas fa-shopping-bag"></i> <span data-i18n="cartTitle">Mon Panier</span></h3>
             <button id="close-cart" class="close-cart"><i class="fas fa-times"></i></button>
         </div>
         <div id="cart-items" class="cart-items"></div>
         <div class="cart-drawer-footer">
             <div class="cart-total-row">
-                <span>Total</span>
+                <span data-i18n="totalLabel">Total</span>
                 <span id="cart-total">0 DA</span>
             </div>
-            <button id="go-checkout" class="btn" style="width: 100%;">Passer la commande</button>
+            <button id="go-checkout" class="btn" style="width: 100%;" data-i18n="checkoutBtn">Passer la commande</button>
         </div>
     </aside>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Houssem Cosmetics. Tous droits réservés.</p>
-            <p>Livraison disponible sur tout le territoire national (58 Wilayas).</p>
+            <p data-i18n="footerRights">&copy; 2024 Houssem Cosmetics. Tous droits réservés.</p>
+            <p data-i18n="footerDelivery">Livraison disponible sur tout le territoire national (58 Wilayas).</p>
         </div>
     </footer>
 
     <script src="wilayas-data.js"></script>
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
