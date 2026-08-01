@@ -1,7 +1,7 @@
 {
   "name": "houssem-cosmetics",
   "version": "1.0.0",
-  "description": "E-commerce site for Houssem Cosmetics",
+  "description": "E-commerce site for Boutique SK Twins 19",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

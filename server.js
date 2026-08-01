@@ -111,5 +111,5 @@ app.get('/api/admin/orders', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Serveur Houssem Cosmetics lancé sur http://localhost:${PORT}`);
+    console.log(`Serveur Boutique SK Twins 19 lancé sur http://localhost:${PORT}`);
 });
