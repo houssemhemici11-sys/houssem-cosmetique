@@ -75,6 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
             description: "Le trio centella asiatica pour calmer et réparer les peaux sensibles.",
             descriptionAr: "ثلاثية السنتيلا الآسيوية لتهدئة وإصلاح البشرة الحساسة.",
             productIds: [26, 28, 31]
+        },
+        {
+            title: "Routine Anti-Âge La Roche-Posay",
+            titleAr: "روتين مضاد للشيخوخة",
+            description: "Rétinol, niacinamide et acide hyaluronique pour une peau repulpée et lissée.",
+            descriptionAr: "ريتينول ونياسيناميد وحمض الهيالورونيك لبشرة ممتلئة وناعمة.",
+            productIds: [38, 39, 35]
+        },
+        {
+            title: "Routine Peaux Sensibles",
+            titleAr: "روتين البشرة الحساسة",
+            description: "Nettoyant doux, sérum réparateur et crème protectrice pour apaiser les peaux irritées.",
+            descriptionAr: "منظف لطيف وسيروم مرمم وكريم حامٍ لتهدئة البشرة المتهيجة.",
+            productIds: [46, 37, 43]
         }
     ];
 
