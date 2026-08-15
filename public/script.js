@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeSkinType = 'Tous';
     let searchTerm = '';
     let showFavoritesOnly = false;
+    let selectedColors = {};
 
     // ---------- DOM ----------
     const productList = document.getElementById('product-list');
@@ -268,22 +269,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 : '';
             const isFav = wishlist.includes(product.id);
 
+            let displayImage = product.image;
+            let swatchesHtml = '';
+            if (product.colors && product.colors.length > 0) {
+                if (selectedColors[product.id] === undefined) selectedColors[product.id] = 0;
+                const selIdx = selectedColors[product.id];
+                displayImage = product.colors[selIdx].image || product.image;
+                swatchesHtml = `
+                    <div class="color-swatches" data-id="${product.id}">
+                        ${product.colors.map((c, i) => `
+                            <button class="color-swatch ${i === selIdx ? 'active' : ''}" data-id="${product.id}" data-idx="${i}" style="background:${c.hex || '#ccc'}" title="${c.name}"></button>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
             card.innerHTML = `
                 <span class="category-tag">${pCat(product.category)}</span>
                 ${badgeHtml}
                 <button class="wishlist-heart ${isFav ? 'active' : ''}" data-id="${product.id}"><i class="${isFav ? 'fas' : 'far'} fa-heart"></i></button>
                 <div class="product-clickable" data-id="${product.id}">
-                    <img src="${product.image}" alt="${pName(product)}" loading="lazy" class="${outOfStock ? 'img-out-of-stock' : ''}">
+                    <img src="${displayImage}" alt="${pName(product)}" loading="lazy" class="${outOfStock ? 'img-out-of-stock' : ''}">
                     <h3>${pName(product)}</h3>
                 </div>
                 <div class="rating-row">${stars} <span class="review-count">(${product.reviews})</span></div>
                 <p class="product-desc">${pDesc(product)}</p>
+                ${swatchesHtml}
                 ${priceHtml}
                 ${stockHtml}
                 <button class="btn btn-add" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${outOfStock ? t('outOfStock') : t('addToCart')}</button>
                 <button class="btn-quick-order" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${t('quickOrder')}</button>
             `;
             productList.appendChild(card);
+        });
+
+        document.querySelectorAll('.color-swatch').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                selectedColors[parseInt(btn.dataset.id)] = parseInt(btn.dataset.idx);
+                renderProducts();
+            });
         });
 
         document.querySelectorAll('.btn-add:not([disabled])').forEach(btn => {
@@ -386,8 +411,26 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         ` : '';
 
+        let modalMainImg = images[0];
+        let colorPickerHtml = '';
+        if (product.colors && product.colors.length > 0) {
+            if (selectedColors[product.id] === undefined) selectedColors[product.id] = 0;
+            const selIdx = selectedColors[product.id];
+            modalMainImg = product.colors[selIdx].image || images[0];
+            colorPickerHtml = `
+                <div class="modal-color-picker">
+                    <span class="modal-color-label">${t('colorLabel')}: <strong>${product.colors[selIdx].name}</strong></span>
+                    <div class="color-swatches">
+                        ${product.colors.map((c, i) => `
+                            <button class="color-swatch ${i === selIdx ? 'active' : ''}" data-modal-id="${product.id}" data-idx="${i}" style="background:${c.hex || '#ccc'}" title="${c.name}"></button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
         productModalBody.innerHTML = `
-            <img src="${images[0]}" alt="${pName(product)}" class="modal-img" id="modal-main-img">
+            <img src="${modalMainImg}" alt="${pName(product)}" class="modal-img" id="modal-main-img">
             ${galleryHtml}
             <div class="modal-info">
                 <span class="category-tag" style="position:static; display:inline-block; margin-bottom:10px;">${pCat(product.category)}</span>
@@ -395,6 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="rating-row">${stars} <span class="review-count">(${product.reviews} ${t('reviewsSuffix')})</span></div>
                 <div class="modal-price-row">${priceHtml}</div>
                 <p class="modal-desc">${pDesc(product)}</p>
+                ${colorPickerHtml}
                 ${!outOfStock && product.stock <= 5 ? `<p class="stock-warning"><i class="fas fa-triangle-exclamation"></i> ${t('stockWarning', { n: product.stock })}</p>` : ''}
                 <div class="modal-actions">
                     <button class="btn modal-add" data-id="${product.id}" ${outOfStock ? 'disabled' : ''}>${outOfStock ? t('outOfStock') : t('addToCart')}</button>
@@ -413,6 +457,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         productModalBody.querySelectorAll('.similar-item').forEach(el => {
             el.addEventListener('click', () => openProductModal(parseInt(el.dataset.id)));
+        });
+        productModalBody.querySelectorAll('.color-swatch[data-modal-id]').forEach(sw => {
+            sw.addEventListener('click', () => {
+                selectedColors[parseInt(sw.dataset.modalId)] = parseInt(sw.dataset.idx);
+                openProductModal(parseInt(sw.dataset.modalId));
+            });
         });
 
         productModalBody.querySelectorAll('.modal-thumb').forEach(thumb => {
@@ -439,11 +489,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function quickOrder(id) {
         const product = products.find(p => p.id === id);
         if (!product || product.stock === 0) return;
-        const existing = cart.find(item => item.id === id);
+        const colorIdx = selectedColors[id];
+        const color = (product.colors && colorIdx !== undefined) ? product.colors[colorIdx] : null;
+        const cartKey = color ? `${id}-${color.name}` : `${id}`;
+        const existing = cart.find(item => (item.cartKey || `${item.id}`) === cartKey);
         if (existing) {
             existing.qty += 1;
         } else {
-            cart.push({ id: product.id, name: product.name, nameAr: product.nameAr, price: product.price, image: product.image, qty: 1 });
+            cart.push({
+                id: product.id,
+                cartKey,
+                name: product.name,
+                nameAr: product.nameAr,
+                price: product.price,
+                image: color ? (color.image || product.image) : product.image,
+                colorName: color ? color.name : null,
+                qty: 1
+            });
         }
         saveCart();
         updateCartUI();
@@ -458,29 +520,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function addToCart(id) {
-        const existing = cart.find(item => item.id === id);
+        const product = products.find(p => p.id === id);
+        const colorIdx = selectedColors[id];
+        const color = (product.colors && colorIdx !== undefined) ? product.colors[colorIdx] : null;
+        const cartKey = color ? `${id}-${color.name}` : `${id}`;
+        const existing = cart.find(item => (item.cartKey || `${item.id}`) === cartKey);
         if (existing) {
             existing.qty += 1;
         } else {
-            const product = products.find(p => p.id === id);
-            cart.push({ id: product.id, name: product.name, nameAr: product.nameAr, price: product.price, image: product.image, qty: 1 });
+            cart.push({
+                id: product.id,
+                cartKey,
+                name: product.name,
+                nameAr: product.nameAr,
+                price: product.price,
+                image: color ? (color.image || product.image) : product.image,
+                colorName: color ? color.name : null,
+                qty: 1
+            });
         }
         saveCart();
         updateCartUI();
         openCart();
     }
 
-    function changeQty(id, delta) {
-        const item = cart.find(i => i.id === id);
+    function changeQty(cartKey, delta) {
+        const item = cart.find(i => (i.cartKey || `${i.id}`) === cartKey);
         if (!item) return;
         item.qty += delta;
-        if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+        if (item.qty <= 0) cart = cart.filter(i => (i.cartKey || `${i.id}`) !== cartKey);
         saveCart();
         updateCartUI();
     }
 
-    function removeFromCart(id) {
-        cart = cart.filter(i => i.id !== id);
+    function removeFromCart(cartKey) {
+        cart = cart.filter(i => (i.cartKey || `${i.id}`) !== cartKey);
         saveCart();
         updateCartUI();
     }
@@ -497,27 +571,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cart.length === 0) {
             cartItemsEl.innerHTML = `<p class="cart-empty">${t('cartEmpty')}</p>`;
         } else {
-            cartItemsEl.innerHTML = cart.map(item => `
+            cartItemsEl.innerHTML = cart.map(item => {
+                const key = item.cartKey || `${item.id}`;
+                return `
                 <div class="cart-item">
                     <img src="${item.image}" alt="${item.name}">
                     <div class="cart-item-info">
-                        <h4>${item.name}</h4>
+                        <h4>${item.name}${item.colorName ? ` <span class="cart-item-color">(${item.colorName})</span>` : ''}</h4>
                         <div class="cart-item-price">${formatPrice(item.price)}</div>
                         <div class="qty-controls">
-                            <button class="qty-btn" data-action="minus" data-id="${item.id}">−</button>
+                            <button class="qty-btn" data-action="minus" data-key="${key}">−</button>
                             <span>${item.qty}</span>
-                            <button class="qty-btn" data-action="plus" data-id="${item.id}">+</button>
+                            <button class="qty-btn" data-action="plus" data-key="${key}">+</button>
                         </div>
                     </div>
-                    <button class="remove-item" data-id="${item.id}"><i class="fas fa-trash"></i></button>
+                    <button class="remove-item" data-key="${key}"><i class="fas fa-trash"></i></button>
                 </div>
-            `).join('');
+            `;
+            }).join('');
 
             cartItemsEl.querySelectorAll('.qty-btn').forEach(btn => {
-                btn.addEventListener('click', () => changeQty(parseInt(btn.dataset.id), btn.dataset.action === 'plus' ? 1 : -1));
+                btn.addEventListener('click', () => changeQty(btn.dataset.key, btn.dataset.action === 'plus' ? 1 : -1));
             });
             cartItemsEl.querySelectorAll('.remove-item').forEach(btn => {
-                btn.addEventListener('click', () => removeFromCart(parseInt(btn.dataset.id)));
+                btn.addEventListener('click', () => removeFromCart(btn.dataset.key));
             });
         }
 
@@ -534,7 +611,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         checkoutSummary.innerHTML = cart.map(item => `
             <div class="summary-line">
-                <span>${item.name} × ${item.qty}</span>
+                <span>${item.name}${item.colorName ? ` (${item.colorName})` : ''} × ${item.qty}</span>
                 <span>${formatPrice(item.price * item.qty)}</span>
             </div>
         `).join('');

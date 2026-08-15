@@ -1072,3 +1072,49 @@ footer {
 }
 
 .lang-toggle-btn:hover { background: var(--gray-light); }
+
+/* ============ Color Variant Swatches ============ */
+.color-swatches {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
+    box-shadow: 0 0 0 1px var(--gray-light);
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition);
+}
+
+.color-swatch.active,
+.color-swatch:hover {
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.modal-color-picker {
+    margin: 16px 0;
+}
+
+.modal-color-label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: var(--gray-medium);
+}
+
+.modal-color-picker .color-swatches {
+    justify-content: flex-start;
+}
+
+.cart-item-color {
+    font-weight: 400;
+    color: var(--gray-medium);
+    font-size: 0.8rem;
+}
