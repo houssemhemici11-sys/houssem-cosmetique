@@ -60,6 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 72, name: "SKIN1004 Madagascar Centella Hyalu-Cica Travel Kit", price: 2800, category: "Coffret", description: "Kit voyage 4 produits (sérum, toner, crème hydratante, sleeping pack) à la centella asiatica hydratante.", nameAr: "SKIN1004 Madagascar Centella Hyalu-Cica Travel Kit", descAr: "طقم سفر من 4 منتجات (سيروم، تونر، كريم مرطب، قناع ليلي) بالسنتيلا الآسيوية المرطبة.", image: "images/products/SKIN1004_Pack_Bleu.jpg", skinTypes: ["Sèche", "Sensible", "Mixte"], stock: 8, rating: 4.7, reviews: 21, badge: "Nouveau" },
         { id: 73, name: "SKIN1004 Madagascar Centella Poremizing Travel Kit", price: 2800, category: "Coffret", description: "Kit voyage 4 produits (ampoule, mousse nettoyante, toner, gel crème) à la centella asiatica resserrante.", nameAr: "SKIN1004 Madagascar Centella Poremizing Travel Kit", descAr: "طقم سفر من 4 منتجات (أمبولة، رغوة تنظيف، تونر، جل كريم) بالسنتيلا الآسيوية المشدة للمسام.", image: "images/products/SKIN1004_Pack_Rose.jpg", skinTypes: ["Grasse", "Mixte"], stock: 8, rating: 4.7, reviews: 18, badge: "Nouveau" },
         { id: 74, name: "Dior Addict Lip Glow Color Reviver Balm", price: 2600, category: "Maquillage", description: "Baume à lèvres révélateur de couleur, hydrate et sublime avec un fini naturel.", nameAr: "Dior Addict Lip Glow Color Reviver Balm", descAr: "بلسم شفاه كاشف للون، يرطب ويضفي لمسة طبيعية.", image: "images/products/Dior_Lip_Glow.jpg", skinTypes: ["Sèche", "Grasse", "Sensible", "Mixte"], stock: 6, rating: 4.8, reviews: 27, badge: "Nouveau" },
+        { id: 75, name: "Gisou Honey Infused Lip Oil", price: 1200, category: "Maquillage", description: "Huile à lèvres nourrissante au miel d'abeille Mirsalehi, hydratation et brillance juteuse.", nameAr: "Gisou Honey Infused Lip Oil", descAr: "زيت شفاه مغذٍ بعسل ميرصالحي، ترطيب ولمعان.", image: "images/products/Gisou_HoneyGold_final.jpg", skinTypes: ["Sèche", "Grasse", "Sensible", "Mixte"], stock: 15, rating: 4.8, reviews: 34, badge: "Nouveau", colors: [
+            { name: "Honey Gold", hex: "#e0b64a", image: "images/products/Gisou_HoneyGold_final.jpg" },
+            { name: "Watermelon Sugar", hex: "#f3c6ce", image: "images/products/Gisou_Watermelon_final.jpg" },
+            { name: "Mango Passion Punch", hex: "#e2622f", image: "images/products/Gisou_Mango_final.jpg" },
+            { name: "Strawberry Sorbet", hex: "#d43a3a", image: "images/products/Gisou_Strawberry_final.jpg" },
+            { name: "Raspberry Swirl", hex: "#e26a8a", image: "images/products/Gisou_Raspberry_final.jpg" }
+        ] },
     ];
 
     const routines = [
