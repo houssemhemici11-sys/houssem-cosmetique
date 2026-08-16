@@ -68,6 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Raspberry Swirl", hex: "#e26a8a", image: "images/products/Gisou_Raspberry_final.jpg" },
             { name: "Bee-llini Peach", hex: "#e8836a", image: "images/products/Gisou_Beellini_final.jpg" }
         ] },
+        { id: 76, name: "Pixi On-the-Glow Blush", price: 800, category: "Maquillage", description: "Blush stick hydratant à texture fondante, se fond instantanément dans la peau pour un effet bonne mine naturel et longue tenue.", nameAr: "Pixi On-the-Glow Blush", descAr: "بلاش ستيك مرطب بملمس ذائب، يندمج فورًا مع البشرة لإطلالة صحية طبيعية تدوم طويلاً.", image: "images/products/Pixi_Blush_Fleur.jpg", skinTypes: ["Sèche", "Grasse", "Sensible", "Mixte"], stock: 10, rating: 4.7, reviews: 15, badge: "Nouveau", colors: [
+            { name: "Fleur", hex: "#e0658a", image: "images/products/Pixi_Blush_Fleur.jpg" },
+            { name: "Juicy", hex: "#e0724a", image: "images/products/Pixi_Blush_Juicy.jpg" },
+            { name: "Ruby", hex: "#c9273f", image: "images/products/Pixi_Blush_Ruby.jpg" }
+        ] },
     ];
 
     const routines = [
