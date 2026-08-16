@@ -65,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Watermelon Sugar", hex: "#f3c6ce", image: "images/products/Gisou_Watermelon_final.jpg" },
             { name: "Mango Passion Punch", hex: "#e2622f", image: "images/products/Gisou_Mango_final.jpg" },
             { name: "Strawberry Sorbet", hex: "#d43a3a", image: "images/products/Gisou_Strawberry_final.jpg" },
-            { name: "Raspberry Swirl", hex: "#e26a8a", image: "images/products/Gisou_Raspberry_final.jpg" }
+            { name: "Raspberry Swirl", hex: "#e26a8a", image: "images/products/Gisou_Raspberry_final.jpg" },
+            { name: "Bee-llini Peach", hex: "#e8836a", image: "images/products/Gisou_Beellini_final.jpg" }
         ] },
     ];
 
