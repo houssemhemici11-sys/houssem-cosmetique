@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Ruby", hex: "#c9273f", image: "images/products/Pixi_Blush_Ruby.jpg" }
         ] },
         { id: 77, name: "Huda Beauty #FauxFilter Luminous Matte Concealer", price: 2000, category: "Maquillage", description: "Correcteur liquide longue tenue à fini mat lumineux, camoufle imperfections et cernes avec une couvrance modulable.", nameAr: "Huda Beauty #FauxFilter Luminous Matte Concealer", descAr: "كونسيلر سائل طويل الثبات بلمسة نهائية مطفية ومشرقة، يخفي الشوائب والهالات بتغطية قابلة للتحكم.", image: "images/products/Huda_Beauty_FauxFilter_Concealer.jpg", skinTypes: ["Sèche", "Grasse", "Sensible", "Mixte"], stock: 10, rating: 4.7, reviews: 12, badge: "Nouveau" },
+        { id: 78, name: "Huda Beauty Baby Bake Mini Loose Baking & Setting Powder", price: 2000, category: "Maquillage", description: "Poudre libre mini format pour baking et fixation, estompe les pores et prolonge la tenue du maquillage sans effet cakey.", nameAr: "Huda Beauty Baby Bake Mini Loose Baking & Setting Powder", descAr: "بودرة سائبة بحجم صغير للبيكينغ والتثبيت، تُخفي المسام وتُطيل ثبات المكياج دون تكتل.", image: "images/products/Huda_Beauty_Baby_Bake_Powder.jpg", skinTypes: ["Sèche", "Grasse", "Sensible", "Mixte"], stock: 10, rating: 4.6, reviews: 9, badge: "Nouveau" },
     ];
 
     const routines = [
